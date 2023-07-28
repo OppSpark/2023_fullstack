@@ -75,12 +75,15 @@
                 margin: 3%;
             }
             #searchbox{ /* POST 서  검색박스 마진  */
-                
+                margin-left:auto;
             }
             #welcome_font{ /* 로그인 창 상단 폰트 */
                 font-size: 3vw;
             }
-            #login_box_font{
+            #login_box_font{ /* 로그인창 폰트 크키 설정 */
                 font-size: 1.7vw;
             }
-          
+            a:visited {
+                text-decoration-line: none;
+                color : aliceblue;
+            }

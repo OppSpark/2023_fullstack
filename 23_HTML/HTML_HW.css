@@ -1,10 +1,10 @@
 
-            body{
+            body{/* 배경색상 */
                 background-color: bebebe;
             }
-            #Head{
+            #Head{ /* 해드를 구성하는 것 */
                 color: aliceblue;
-                display: flex;
+                display: flex; 
                 align-items: center; 
                 background-color: rgb(50, 50, 50);
                 margin: 3%;
@@ -12,28 +12,27 @@
                 padding: 10px; 
                 
             }
-            #logo{
+            #logo{ 
                 background-color: aqua;
             }
-            nav{
+            nav{ /* 네비게이션 바  */
                 margin-left:auto
             }
-            li{
-                
+            li{ /* 네비게이션 바 가로 구현 및 기타 코드 */
                 font-size: 1.5vw;
                 display: inline-block;
                 margin: 20px;
                 padding-bottom: 5px;
                 border-bottom: solid 4px aliceblue;
                 
-            }
-            #maintext{
+            } 
+            #maintext{ /* MAIN 에서 메인 텍스트 설정 */
                 margin-left: 25%;
                 margin-right: 25%;
                 font-size: 3vw;
                 text-align: center;
             }
-            #post_text{
+            #post_text{ /* POST 에서 포스트 박스 안 글씨 크기와 기타 설정   !!!!! 가장 중요한 뼈대가 됨*/
                 margin-left: 25%;
                 margin-right: 25%;
                 
@@ -41,12 +40,12 @@
                 text-align: left;
                 padding-bottom: 5%;
             }
-            li:hover {
+            li:hover { /* nav바 호버 구현 */
                 border-color: whitesmoke; 
                 transition: all 0.1s linear;
                 transform: scale(1.3);
             }
-            #postbox{
+            #postbox{ /* POST 박스서 포스트 박스 크기와 flex 등등 구현 */
                 padding-right:3%;
                 padding-left:3%;
                 padding-top: 1%;
@@ -58,23 +57,30 @@
                 padding-bottom : 10%;
             }
 
-            #loginbox{
+            #loginbox{ /* MAIN 서 녹색 로그인 박스  */
                 background-color: green;
-                width: 150px;
-                font-size: 1.3rem; font-weight: 600; margin: auto;
-                padding: 1.5rem;
+                border-radius: 1.005em;
+                font-size: 1.3vw; font-weight: 600; margin: auto;
+                padding: 1.5vw;
                 text-decoration: none;
             }
-            #NT{
+            #NT{  /* POST 서 NEW POST 를 구성하는 것 */
                 font-size: 1.5em;
                 font-weight: bolder;
             }
-            #scbox{
+            #scbox{ /* POST서 NEW POST 와 검색창을 중앙정렬 후 마진  */
                 color: rgb(0, 0, 0);
                 display: flex;
                 align-items: center; 
                 margin: 3%;
             }
-            #searchbox{
-                margin-left:auto;
+            #searchbox{ /* POST 서  검색박스 마진  */
+                
             }
+            #welcome_font{ /* 로그인 창 상단 폰트 */
+                font-size: 3vw;
+            }
+            #login_box_font{
+                font-size: 1.7vw;
+            }
+          

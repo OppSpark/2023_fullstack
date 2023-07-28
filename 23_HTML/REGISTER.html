@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <i class="fa-solid fa-heart" style="color: #000000;"></i> <!-- 하트 아이콘-->
+        <i class="fa-solid fa-pen" style="color: #000000;"></i> <!--연필-->
+
+
+        <link rel="stylesheet" href="./HTML_HW.css" type="text/css"> <!-- CSS 불러오기 -->
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> <!-- 해더 include JS -->
+        <script type="text/javascript">   
+        $(document).ready( function() {
+        $("#headers").load("header.html"); 
+        });
+        </script>
+       
+        
+    </head>
+        <body>
+            <div id="headers"></div> <!-- 해더 불러오기 -->
+
+            <div id ="post_text"> <!-- 창 구성하느 는것 -->
+                <div id = postbox> <!-- 흰 창에 내용 구성 하는 것 -->
+                    <span id ="welcome_font"> Welcome to my site</span>
+                    <hr>
+                    <p id ="login_box_font">Type your email address</p>
+                    <input tpye="ID" style="width :40%; height : 3.5%;" placeholder="Type your email address" ><!-- 이메일 박스 -->
+        
+
+                    <p id ="login_box_font"><input type="checkbox" style="width: 1.9%;height: 1.9%;" name="login_check" value="yyy"> I have my account</p> <!-- 로그인 체크 박스 -->
+                 
+                    
+               
+
+                     
+                    
+                    <p id ="login_box_font"> <input type="checkbox" style="width: 1.9%;height: 1.9%;" name="xxx" value="yyy" checked> I dom`t have my account</p> <!-- 회원가입 체크 박스 -->
+               
+                    <p id ="login_box_font">Your name</p>
+                    <input tpye="ID" style="width :40%; height : 3.5%;" placeholder="Type your name" ><!-- 이름 상자 -->
+
+                    <p id ="login_box_font">Choose yout password</p>
+                    <input type="password" name="password" style="width :40%; height : 3.5%;" class="text-field" placeholder="Type are password"> <!-- 비밀번호 텍스트 박스 -->
+
+                    <p id ="login_box_font">RE-type your password</p>
+                    <input type="password" name="password" style="width :40%; height : 3.5%;" class="text-field" placeholder="RE-tpye are password"> <!-- 비밀번호 텍스트 박스 -->
+                    <hr>
+                    <br/>
+                    <p class="idbox"><a id="loginbox">Create account</a></p> <!-- 로그인 창 -->
+                
+                </div>
+            </div>
+
+        </body>
+    
+</html>

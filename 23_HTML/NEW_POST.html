@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <i class="fa-solid fa-heart" style="color: #000000;"></i> <!-- 하트 아이콘-->
+        <i class="fa-solid fa-pen" style="color: #000000;"></i> <!--연필-->
+
+
+        <link rel="stylesheet" href="./HTML_HW.css" type="text/css"> <!-- CSS 불러오기 -->
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> <!-- 해더 include JS -->
+        <script type="text/javascript">   
+        $(document).ready( function() {
+        $("#headers").load("header.html"); 
+        });
+        </script>
+
+
+        <script>   /* 텍스트 박스 크기를 자동으로 조정 하는 JS */
+            function resize(obj) {
+            obj.style.height = "1px";
+            obj.style.height = (12+obj.scrollHeight)+"px";
+        }
+        </script>
+       
+        
+    </head>
+        <body>
+            <div id="headers"></div> <!-- 해더 불러오기 -->
+
+            <div id = "post_text">
+                <div id = "postbox">
+                    <div id = "new_post_box">
+                        <input tpye="text" style="width :90%; height : 4%;" placeholder="제목">
+                        <hr/>
+                        <textarea onkeydown="resize(this)" style = "width :90%; height : 30%;" placeholder="내용"></textarea>
+                    </div>
+                </div>
+
+
+            </div>
+            
+
+        </body>
+    
+</html>

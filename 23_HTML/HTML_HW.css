@@ -87,3 +87,13 @@
                 text-decoration-line: none;
                 color : aliceblue;
             }
+            #new_post_box{ /* NEW_POST글 쓰기 박스 설정 */
+                text-align: center;
+                margin-top: 3%;
+            }
+            textarea{
+                min-height: 200px;
+                overflow: hidden;
+
+            }
+        

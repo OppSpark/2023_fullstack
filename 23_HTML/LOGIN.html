@@ -27,14 +27,14 @@
                     <input tpye="ID" style="width :40%; height : 3.5%;" placeholder="ype your email address" ><!-- 이메일 박스 -->
         
 
-                    <p id ="login_box_font"><input type="checkbox" style="width: 1.9%;height: 1.9%;" name="login_check" value="yyy" checked> I have my account</p> <!-- 로그인 체크 박스 -->
+                    <p id ="login_box_font"><input type="checkbox" onclick="movepage('LOGIN.html')" style="width: 1.9%;height: 1.9%;" name="login_check" value="yyy" checked> I have my account</p> <!-- 로그인 체크 박스 -->
                  
                     
                
 
                     <!-- JS 이용해서 체크박스 클릭 시 회원가입 창이 열리도록 설계 해야함!!!! -- 설계 하면 주석 제거 할 것 -->
                     
-                    <p id ="login_box_font"> <input type="checkbox" style="width: 1.9%;height: 1.9%;" name="xxx" value="yyy"> I dom`t have my account</p> <!-- 회원가입 체크 박스 -->
+                    <p id ="login_box_font"> <input type="checkbox" onclick="movepage('REGISTER.html')"; style="width: 1.9%;height: 1.9%;" name="xxx" value="yyy"> I dom`t have my account</p> <!-- 회원가입 체크 박스 -->
                
                     <p id ="login_box_font">Type your password</p>
                     <input type="password" name="password" style="width :40%; height : 3.5%;" class="text-field" placeholder="Type are password"> <!-- 비밀번호 텍스트 박스 -->
@@ -42,9 +42,12 @@
                     <br/>
                     <p class="idbox"><a id="loginbox" href="MAIN.html" target="_self" style="text-decoration:none">LOG IN</a>Forget your password? </p> <!-- 로그인 창 -->
                 
+
+
                 </div>
             </div>
-
+            <script type="text/javascript" src="./login_move.js"></script> <!-- 체크박스 이동 JS -->
+                
         </body>
     
 </html>

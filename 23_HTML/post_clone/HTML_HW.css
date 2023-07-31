@@ -1,6 +1,5 @@
-
             body{/* 배경색상 */
-                background-color: bebebe;
+                background-color: #bebebe;
             }
             #Head{ /* 해드를 구성하는 것 */
                 color: aliceblue;
@@ -38,23 +37,26 @@
                 
                 font-size: 1.5vw;
                 text-align: left;
-               /* padding-bottom: 5%; */ 
+                padding-bottom: 5%;
             }
             li:hover { /* nav바 호버 구현 */
                 border-color: whitesmoke; 
                 transition: all 0.1s linear;
                 transform: scale(1.3);
             }
-            #postbox{ /* POST 박스서 포스트 박스 크기와 flex 등등 구현  하고 기본값 아래 in 참고*/
+            #postbox{ /* POST 박스서 포스트 박스 크기와 flex 등등 구현 */
                 padding-right:3%;
                 padding-left:3%;
                 padding-top: 1%;
-                background-color: rgb(224, 224, 224);
+                
                 height: auto;
                 min-height : 200px;
                 margin-top : 25px;
                 margin-bottom: 10%;
                 padding-bottom : 10%;
+                margin-left: 25%;
+                margin-right: 25%;
+                background-color: rgb(224, 224, 224);
             }
 
             #loginbox{ /* MAIN 서 녹색 로그인 박스  */
@@ -96,24 +98,6 @@
                 overflow: hidden;
 
             }
-            #postbox_in{ /* POST 박스서 포스트 박스 크기와 flex 등등 구현 */
-                padding-right:3%;
-                padding-left:3%;
-                padding-top: 1%;
-                background-color: rgb(224, 224, 224);
-                height: auto;
-                /* min-height : 200px; */
-                margin-top : 25px;
-                margin-bottom: 10%;
-                margin-left: 25%;
-                margin-right: 25%;
-                padding-bottom : 5%;
-            }
+        
 
-            #post_title{  /* 포스트에서 제묵 구성하는 것 */
-                font-size: 2.2vw;
-            }
-            #post_contents{/* 포스트에서 내용 구성하는 것 */
-                font-size: 1.5vw;
-
-            }
+            

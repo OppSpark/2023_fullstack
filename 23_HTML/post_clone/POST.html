@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -13,7 +14,8 @@
         $("#headers").load("header.html"); 
         });
         </script>
-
+        
+       
     </head>
         <body>
             
@@ -21,23 +23,37 @@
 
                     <!-- 호버 기능 구현 해야함! 나중에 할 것 -- 다하고 주석 제거 -- -->
             <section id ="post_text">  <!-- NEW POST 와 검색창 구현 코드 -->
-
+                    
+                <div id = pbox_js>
                     <div id = "scbox">
-                        <p><a id="NT" href="./NEW_POST.html" target="_self" style="text-decoration:none; color: #000000;" >NEW POST</a></p> <!-- 뉴 포스트 -->
+                        <p><a id="NT">NEW POST</a></p> <!-- 뉴 포스트 -->
                         <div id = "searchbox">
                             <input tpye="text" placeholder="Search"> <!-- 검색창과 검색 버튼 -->
                             <button>검색</button> 
                         </div>
+                     </div>
                     </div>
 
 
 
-                    <!-- 아이콘 사이트 https://www.flaticon.com/kr/search?word=%ED%9C%B4%EC%A7%80%ED%86%B5 -->
 
-                    <div id="postbox_in">
-                        <div class="title" id="post_title"></div> <!-- 제목 넣는 JS  -->
+
+
+
+
+
+
+
+                     <!-- 아이콘 사이트 https://www.flaticon.com/kr/search?word=%ED%9C%B4%EC%A7%80%ED%86%B5 -->
+
+
+
+
+
+                     <div id="postbox">
+                        <div class="title" id="post_title"></div>
                         <hr />
-                        <div class="cont" id="post_contents"></div> <!-- 본문 넣는 JS -->
+                        <div class="cont" id="post_contents"></div>
                         <hr />
                         <div align="right">
                             <!-- 이모티콘 제거 수정 좋아요 -->
@@ -46,9 +62,10 @@
                             <img src="./icon/free-icon-heart-shape-silhouette-25451.png" style="height: 2.5%; margin-left: 1.5%" />
                         </div>
                     </div>
+
                     <script src="./post_page.js"> </script>
             </section>
-
+            
         </body>
-    
+       
 </html>

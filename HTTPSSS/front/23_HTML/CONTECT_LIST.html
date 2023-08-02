@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <i class="fa-solid fa-heart" style="color: #000000;"></i> <!-- 하트 아이콘-->
+        <i class="fa-solid fa-pen" style="color: #000000;"></i> <!--연필-->
+
+
+        <link rel="stylesheet" href="./HTML_HW.css" type="text/css"><!-- CSS 불러오기 -->
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> <!-- 해더 include JS -->
+        <script type="text/javascript">   
+        $(document).ready( function() {
+        $("#headers").load("header.html"); 
+        });
+        </script>
+
+    </head>
+        <body>
+            
+            <div id="headers"></div> <!-- 해더 불러오기 -->
+
+                    <!-- 호버 기능 구현 해야함! 나중에 할 것 -- 다하고 주석 제거 -- -->
+            <section id ="post_text">  <!-- NEW POST 와 검색창 구현 코드 -->
+
+                    <div id = "scbox">
+                        <p><a id="NT" href="./NEW_POST.html" target="_self" style="text-decoration:none; color: #000000;" >CONTECT LIST</a></p> <!-- 뉴 포스트 -->
+                    </div>
+
+
+
+                    <!-- 아이콘 사이트 https://www.flaticon.com/kr/search?word=%ED%9C%B4%EC%A7%80%ED%86%B5 -->
+
+                    <div id="postbox">
+                        <div class="title" id="post_title"></div> <!-- 제목 넣는 JS  -->
+                    </div>
+                    <script src="./contect_li.js"> </script>
+            </section>
+
+        </body>
+    
+</html>

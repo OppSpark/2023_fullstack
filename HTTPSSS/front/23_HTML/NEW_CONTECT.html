@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <i class="fa-solid fa-heart" style="color: #000000;"></i> <!-- 하트 아이콘-->
+        <i class="fa-solid fa-pen" style="color: #000000;"></i> <!--연필-->
+
+
+        <link rel="stylesheet" href="./HTML_HW.css" type="text/css"> <!-- CSS 불러오기 -->
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> <!-- 해더 include JS -->
+        <script type="text/javascript">   
+        $(document).ready( function() {
+        $("#headers").load("header.html"); 
+        });
+        </script>
+
+
+        <script>   /* 텍스트 박스 크기를 자동으로 조정 하는 JS */
+            function resize(obj) {
+            obj.style.height = "1px";
+            obj.style.height = (12+obj.scrollHeight)+"px";
+        }
+        </script>
+
+
+        
+    </head>
+        <body>
+            <div id="headers"></div> <!-- 해더 불러오기 -->
+
+
+
+            <div id = "post_text">
+
+
+
+                <div id = "scbox">  <!-- 콘텍트 me 가 들어가는 DIV -->
+                    <p><a id="NT" style="text-decoration:none; color: #000000;" >CONTECT ME</a></p> <!-- 뉴 포스트 -->
+                    
+                </div>
+
+
+
+
+                <div id = "postbox">  <!--CONTECT ME BOX -->
+                    <div id = "new_post_box">
+                        <input tpye="text" style="width :90%; height : 4%;" placeholder="제목">
+                        <hr/>
+                        <textarea onkeydown="resize(this)" style = "width :90%; height : 30%;" placeholder="내용"></textarea>
+                        
+
+                        <div align="right">
+                            <!-- 이모티콘 제거 수정 좋아요 -->
+                            
+                            <img src="./icon/free-icon-pencil-tool-1014883.png" style="height: 2.5%; margin-right: 5%; margin-top: 5%;" />
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+            </div>
+            
+
+        </body>
+    
+</html>

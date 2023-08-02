@@ -1,0 +1,11 @@
+[Unit]
+Description= hello
+
+[Service]
+ExecStart=/home/ubuntu/HTTPSSS/index.js
+Restart=always
+Group=nogroup
+WorkingDirectory=/home/ubuntu/HTTPSSS
+
+[Install]
+WantedBy=multi-user.target

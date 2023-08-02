@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <i class="fa-solid fa-heart" style="color: #000000;"></i> <!-- 하트 아이콘-->
+        <i class="fa-solid fa-pen" style="color: #000000;"></i> <!--연필-->
+
+
+        <link rel="stylesheet" href="./HTML_HW.css" type="text/css"> <!-- CSS 불러오기 -->
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> <!-- 해더 include JS -->
+        <script type="text/javascript">   
+        $(document).ready( function() {
+        $("#headers").load("header.html"); 
+        });
+        </script>
+       
+        
+    </head>
+        <body>
+            <div id="headers"></div> <!-- 해더 불러오기 -->
+
+            <div id ="post_text"> <!-- 창 구성하느 는것 -->
+                <div id = postbox> <!-- 흰 창에 내용 구성 하는 것 -->
+                    <span id ="welcome_font"> Welcome to my site</span>
+                    <hr>
+                    <p id ="login_box_font">Type your email address</p>
+                    <input tpye="ID" style="width :40%; height : 3.5%;" placeholder="ype your email address" ><!-- 이메일 박스 -->
+        
+
+                    <p id ="login_box_font"><input type="checkbox" onclick="movepage('LOGIN.html')" style="width: 1.9%;height: 1.9%;" name="login_check" value="yyy" checked> I have my account</p> <!-- 로그인 체크 박스 -->
+                 
+                    
+               
+
+                    <!-- JS 이용해서 체크박스 클릭 시 회원가입 창이 열리도록 설계 해야함!!!! -- 설계 하면 주석 제거 할 것 -->
+                    
+                    <p id ="login_box_font"> <input type="checkbox" onclick="movepage('REGISTER.html')"; style="width: 1.9%;height: 1.9%;" name="xxx" value="yyy"> I dom`t have my account</p> <!-- 회원가입 체크 박스 -->
+               
+                    <p id ="login_box_font">Type your password</p>
+                    <input type="password" name="password" style="width :40%; height : 3.5%;" class="text-field" placeholder="Type are password"> <!-- 비밀번호 텍스트 박스 -->
+                    <hr>
+                    <br/>
+                    <p class="idbox"><a id="loginbox" href="MAIN.html" target="_self" style="text-decoration:none">LOG IN</a></p> <!-- 로그인 창 -->
+                
+
+
+                </div>
+            </div>
+            <script type="text/javascript" src="./login_move.js"></script> <!-- 체크박스 이동 JS -->
+                
+        </body>
+    
+</html>

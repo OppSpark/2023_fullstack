@@ -32,6 +32,11 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname,'./', '23_HTML', 'MAIN.html'));
 });
 
+app.get('/', (req, res) => { /* 해더 불러오기 */
+	res.sendFile(path.join(__dirname,'./', '23_HTML', 'header.htm'));
+});
+
+
 app.get('/login', (res, ree) => {
 	res.sendFile(pach.join(__dirname,'./', '23_HTML', 'LOGIN.html'));
 });

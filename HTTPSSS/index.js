@@ -12,10 +12,8 @@ const cors = require('cors');
 
 
 
-const express = require('express');  /* CSS JPG를 허용하는 public folder */
-//public이라는 폴더의 클라이언트 접근 허용 (미들웨어)
-app.use(express.static('public'));
-
+const express = require('express'); 
+app.use(express.static(path.join(__dirname,'views')));
 
 
 
@@ -31,11 +29,6 @@ app.get('/api', (req, res) => {
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname,'./', '23_HTML', 'MAIN.html'));
 });
-
-app.get('/', (req, res) => { /* 해더 불러오기 */
-	res.sendFile(path.join(__dirname,'./', '23_HTML', 'header.htm'));
-});
-
 
 app.get('/login', (res, ree) => {
 	res.sendFile(pach.join(__dirname,'./', '23_HTML', 'LOGIN.html'));

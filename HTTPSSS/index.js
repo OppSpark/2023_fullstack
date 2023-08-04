@@ -29,9 +29,9 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname,'./', 'views', 'MAIN.html'));
 });
 
-app.get('/login', (res, ree) => {
-	res.sendFile(pach.join(__dirname,'./', 'views', 'LOGIN.html'));
-});
+//app.get('/login', (res, ree) => {
+//	res.sendFile(pach.join(__dirname,'./', 'views', 'LOGIN.html'));
+//});
 
 app.use(
 	cors({
@@ -39,6 +39,14 @@ app.use(
 		credentials:true,
 	})
 );
+
+app.use(
+	cors({
+		origin: 'http://175.112.124.90:3000',
+		credentials:true,
+	})
+);
+
 
 
 app.listen(port, () => {

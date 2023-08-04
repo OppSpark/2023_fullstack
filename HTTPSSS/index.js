@@ -10,9 +10,7 @@ const port = 3000;
 const path = require('path');
 const cors = require('cors');
 
-
-
-const express = require('express'); 
+ 
 app.use(express.static(path.join(__dirname,'views')));
 
 
@@ -27,12 +25,12 @@ app.get('/api', (req, res) => {
 
 
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname,'./', '23_HTML', 'MAIN.html'));
+	res.sendFile(path.join(__dirname,'./', 'views', 'MAIN.html'));
 });
 
-app.get('/login', (res, ree) => {
-	res.sendFile(pach.join(__dirname,'./', '23_HTML', 'LOGIN.html'));
-});
+//app.get('/login', (res, ree) => {
+//	res.sendFile(pach.join(__dirname,'./', 'views', 'LOGIN.html'));
+//});
 
 app.use(
 	cors({

@@ -23,18 +23,32 @@ const pool = mysql.createPool({
 	debug:false
 
 });
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+
+router.post('/REGISER',(req, res)=>{
+	const user_id = req.body.re_email;
+	const user_name = req.body.re_name;
+	const user_pw = req.body.re_pw;
+
+	var sql = "INSTER INTO user_info (user_id, user_name, user_pw) VALUES (?,?,?)";
+	con.query(sql, [re_emai, re_name,re_pw], function (err, result){
+		if(err){
+			res.json({message:false})
+		}else{
+			res.json({message:name})
+		}
+	});
+});
+//app.use(express.urlencoded({extended:true}))
+//app.use(express.json())
 
 
-app.post('/REGISTER',(req, res) => { /* post로 들어오는 명령어는 여기서 처리 함 회원가입 기능 */
+//app.post('/REGISTER',(req, res) => { /* post로 들어오는 명령어는 여기서 처리 함 회원가입 기능 */
 
-const user_id = req.body.re_email;
-const user_name = req.body.re_name;
-const user_pw = req.body.re_pw;
-//const re_rpw = req.body.id;
-//const paraId = req.body.id;
+//const user_id = req.body.re_email;
+//const user_name = req.body.re_name;
+//const user_pw = req.body.re_pw;
 
+/*
 pool.getConnection((err,conn)=> {
 
 	if(err){
@@ -69,6 +83,7 @@ pool.getConnection((err,conn)=> {
 })
 
 })
+*/
 
 //require('')
 
@@ -92,6 +107,11 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname,'./', 'views', 'MAIN.html'));
 });
 
+
+app.get('/REGISTER', function(request, response) {
+    response.sendFile(path.join(__dirname + 'register.html'));
+});
+ 
 
 //app.get('/login', (res, ree) => {
 //	res.sendFile(pach.join(__dirname,'./', 'views', 'LOGIN.html'));

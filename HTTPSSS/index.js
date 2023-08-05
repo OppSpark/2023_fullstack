@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/REGISTER', (req, res) => {
+app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname,'./','views', 'REGISTER.html'));
 });
 
@@ -37,6 +37,7 @@ app.get('/LOGIN', (req, res) => {
 const dbConfig = {
 	host: 'localhost', 
 	user: 'OppSpark',
+	port: 3306,
 	password: '1515', 
 	database: '23_S', 
   };
@@ -65,7 +66,7 @@ const dbConfig = {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/REGISTER', (req, res) => {
+app.post('/register', (req, res) => {
 	console.log('회원가입 페이지');
 	const { re_email, re_name, re_pw } = req.body;
   

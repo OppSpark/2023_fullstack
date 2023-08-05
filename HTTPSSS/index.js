@@ -11,8 +11,36 @@ const path = require('path');
 const cors = require('cors');
 
 
- 
 
+
+const dbConfig = {
+	host: 'localhost', // 데이터베이스 호스트 주소
+	user: 'OppSpark', // 데이터베이스 사용자명
+	password: 'y1515', // 사용자 비밀번호
+	database: '23_S', // 데이터베이스 이름
+  };
+  
+  // MySQL 데이터베이스 연결 설정
+  const connection = mysql.createConnection(dbConfig);
+  
+  // 데이터베이스 연결 확인
+  connection.connect((err) => {
+	if (err) {
+	  console.error('Error connecting to database: ', err);
+	  return;
+	}
+	console.log('Connected to database!');
+  });
+
+
+
+
+
+
+
+
+
+/* 
 const dbconfig = require('./config/dbdata.json') 
 const pool = mysql.createPool({
 	connectionLimit: 10,
@@ -23,6 +51,10 @@ const pool = mysql.createPool({
 	debug:false
 
 });
+
+*/
+
+
 
 router.post('/REGISER',(req, res)=>{
 	const user_id = req.body.re_email;
@@ -109,7 +141,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/REGISTER', function(request, response) {
-    response.sendFile(path.join(__dirname + 'register.html'));
+    response.sendFile(path.join(__dirname + '/register.html'));
 });
  
 

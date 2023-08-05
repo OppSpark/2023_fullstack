@@ -8,6 +8,7 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const { resourceUsage } = require('process');
 
 
 
@@ -102,12 +103,13 @@ app.post('/register', (req, res) => {
 		if(err){
 			console.log(fail);
 		}
-		else{
+		else(result){
 			console.log(pass);
 		}
 	});
-
-    if (req.session.user ? req.session.user.id == 'test' : false) {
+});
+	/* 
+	if (req.session.user ? req.session.user.id == 'test' : false) {
         res.redirect('/');
     }
     else if(req.body.id == 'test' && req.body.pw == '1234') {
@@ -121,7 +123,8 @@ app.post('/register', (req, res) => {
     else {
         res.redirect('/login');
     }
-});
+}); */
+    
 
   
 

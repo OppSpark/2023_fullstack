@@ -67,7 +67,7 @@ app.use(bodyParser.json());
 
 app.post('/register', (req, res) => {
 	console.log('회원가입 페이지');
-	const { re_email, re_name, re_pw } = req.body;
+	const {re_email, re_name, re_pw } = req.body;
   
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
@@ -93,6 +93,20 @@ app.post('/register', (req, res) => {
   //로그인 구현
 
   app.post('/login', (req, res) => {
+	console.log('login')
+
+	const { lo_id, lo_pw } = req.body;
+
+	const log = 'SELECT * FROM 23_S.user_info WHERE user_id = ? AND user_pw = ?';
+	connection.query(log[lo_id, lo_pw],(err, result) => {
+		if(err){
+			console.log(fail);
+		}
+		else{
+			console.log(pass);
+		}
+	});
+
     if (req.session.user ? req.session.user.id == 'test' : false) {
         res.redirect('/');
     }

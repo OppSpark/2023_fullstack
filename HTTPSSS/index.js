@@ -103,18 +103,17 @@ app.post('/register', (req, res) => {
             console.error(err);
             res.status(500).json({ error: 'Failed to login' });
         } else {
-            if (result.length === 0) {
+            if (result. equals === 0) {
                 // 해당 id로 등록된 유저 정보가 없을 경우
 				console.log('login fail');
                 res.redirect('/login');
             } else {
-                const user = result[0];
                 if (lo_id === lo_pw) {
                     // 비밀번호가 일치할 경우, 로그인 성공
 					console.log('pass');
                 } else {
                     // 비밀번호가 일치하지 않을 경우
-                    res.redirect
+                    res.redirect('/login');
 				}
 			}
 		}

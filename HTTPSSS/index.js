@@ -6,7 +6,7 @@ const mysql = require('mysql');
 const static = require('serve-static')
 const app = express();
 const port = 3000;
-
+const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
@@ -43,12 +43,15 @@ const dbConfig = {
 
   //app.use(bodyParser.json());
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.post('/RGISTER', (req, res) => {
 	const { user_id, user_name, user_pw } = req.body;
   
 	// MySQL에 회원 정보 삽입
-	const sql = 'INSERT INTO users (re_email, re_name, re_pw) VALUES (?, ?, ?)';
-	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
+	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
+	connection.query(sql, [user_id, user_name, user_pw], (err, result) => {
 	  if (err) {
 		console.error(err);
 		res.status(500).json({ error: 'Failed to register' });

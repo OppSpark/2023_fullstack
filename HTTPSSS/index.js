@@ -55,21 +55,7 @@ const pool = mysql.createPool({
 */
 
 
-
-router.post('/REGISER',(req, res)=>{
-	const user_id = req.body.re_email;
-	const user_name = req.body.re_name;
-	const user_pw = req.body.re_pw;
-
-	var sql = "INSTER INTO user_info (user_id, user_name, user_pw) VALUES (?,?,?)";
-	con.query(sql, [re_emai, re_name,re_pw], function (err, result){
-		if(err){
-			res.json({message:false})
-		}else{
-			res.json({message:name})
-		}
-	});
-});
+	
 //app.use(express.urlencoded({extended:true}))
 //app.use(express.json())
 

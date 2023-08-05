@@ -99,10 +99,6 @@ app.post('/register', (req, res) => {
 	const sql = 'SELECT * FROM 23_S.user_info WHERE user_id = ? AND user_pw = ?';
 	connection.query(sql, [lo_id, lo_pw], (err, result) =>{
 		
-		if (err) {
-            console.error(err);
-            res.status(500).json({ error: 'Failed to login' });
-        } else {
             if (!result[0]) {
                 // 해당 id로 등록된 유저 정보가 없을 경우
 				console.log('login fail');
@@ -113,10 +109,11 @@ app.post('/register', (req, res) => {
 					console.log('pass');
                 } else {
                     // 비밀번호가 일치하지 않을 경우
+					console.log('login fail');
                     res.redirect('/login');
 				}
 			}
-		}
+		
 	})
 });
 

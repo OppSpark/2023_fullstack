@@ -100,12 +100,14 @@ app.post('/register', (req, res) => {
 
 	const log = 'SELECT * FROM 23_S.user_info WHERE user_id = ? AND user_pw = ?';
 	connection.query(log[lo_id, lo_pw],(err, result) => {
-		if(err){
-			console.log(fail);
+
+		if (err) {
+			console.log(fail)
+		} else{
+			console.log(pass)
 		}
-		else(result){
-			console.log(pass);
-		}
+
+		
 	});
 });
 	/* 

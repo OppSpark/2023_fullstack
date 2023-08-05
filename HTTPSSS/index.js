@@ -109,7 +109,7 @@ app.post('/register', (req, res) => {
                 res.redirect('/login');
             } else {
                 const user = result[0];
-                if (user.user_pw === login_pw) {
+                if (lo_id === lo_pw) {
                     // 비밀번호가 일치할 경우, 로그인 성공
 					console.log('pass');
                 } else {

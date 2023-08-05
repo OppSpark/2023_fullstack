@@ -119,7 +119,9 @@ app.post('/register', (req, res) => {
                     res.redirect
 				}
 			}
-	});
+		}
+	})
+});
 
     if (req.session.user ? req.session.user.id == 'test' : false) {
         res.redirect('/');

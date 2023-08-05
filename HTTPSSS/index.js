@@ -12,6 +12,25 @@ const cors = require('cors');
 
 
 
+app.use(express.static(path.join(__dirname,'views')));
+
+express.applic
+
+
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname,'./', 'views', 'MAIN.html'));
+});
+
+
+app.get('/REGISTER', (req, res) => {
+    res.sendFile(path.join(__dirname,'./','views', 'REGISTER.html'));
+});
+
+app.get('/LOGIN', (req, res) => {
+    res.sendFile(path.join(__dirname, './', 'views','LOGIN.html'));
+});
+ 
+
 
 
 //디비 정보 불러오는 내용
@@ -46,12 +65,13 @@ const dbConfig = {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/RGISTER', (req, res) => {
+app.post('/REGISTER', (req, res) => {
+	console.log('회원가입 페이지');
 	const { re_email, re_name, re_pw } = req.body;
   
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
-	connection.query(sql, [re_id, re_name, re_pw], (err, result) => {
+	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
 	  if (err) {
 		console.error(err);
 		res.status(500).json({ error: 'Failed to register' });
@@ -63,7 +83,13 @@ app.post('/RGISTER', (req, res) => {
   
 
 
+  
 
+
+
+
+
+  
 
   
 	
@@ -118,7 +144,7 @@ pool.getConnection((err,conn)=> {
 
 
 
-app.use(express.static(path.join(__dirname,'views')));
+
 
 /* app.get('/api', (req, res) => {
 	connection.query('SELECT * FROM tb1', (error, rows) => {
@@ -127,24 +153,6 @@ app.use(express.static(path.join(__dirname,'views')));
 	});
 });  */
 
-
-
-express.applic
-
-
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname,'./', 'views', 'MAIN.html'));
-});
-
-
-app.get('/REGISTER', (req, res) => {
-    res.sendFile(path.join(__dirname,'./','views', 'REGISTER.html'));
-});
-
-app.get('/LOGIN', (req, res) => {
-    res.sendFile(path.join(__dirname, './', 'views','LOGIN.html'));
-});
- 
 
 //app.get('/login', (res, ree) => {
 //	res.sendFile(pach.join(__dirname,'./', 'views', 'LOGIN.html'));

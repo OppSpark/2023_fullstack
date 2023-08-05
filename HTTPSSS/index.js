@@ -61,8 +61,6 @@ const dbConfig = {
 
   //회원 가입 구현
 
-  //app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -99,6 +97,7 @@ app.post('/register', (req, res) => {
 				console.log('login fail');
                 res.redirect('/login');
             }else{
+				// DB에 해당 ID가 있을 경우
 				console.log('pass');
 			}
 			
@@ -108,85 +107,9 @@ app.post('/register', (req, res) => {
 });
  
 
-
-
-  
-
-  
-	
-//app.use(express.urlencoded({extended:true}))
-//app.use(express.json())
-
-
-//app.post('/REGISTER',(req, res) => { /* post로 들어오는 명령어는 여기서 처리 함 회원가입 기능 */
-
-//const user_id = req.body.re_email;
-//const user_name = req.body.re_name;
-//const user_pw = req.body.re_pw;
-
-/*
-pool.getConnection((err,conn)=> {
-
-	if(err){
-		conn.release();
-		console.log('Mysql get connectionn error');
-		return;
-	}
-	console.log('mysql connect');
-
-
-
-	const exec = conn.query('insert into res (user_id, user_name, user_pw) values (?.?.?);',
-		[user_id, para_name, user_pw],
-		(err, result)=>{
-			conn.release();
-			console.log('what sql?'+ exec.sql)
-
-			if(err){
-				console.log('sql error')
-				console.dir(err);
-				return;
-				
-		}
-			if (result){
-				console.dir(result)
-
-				res.writeHead('200', {Conn})
-
-			}
-		}
-		)
-})
-
-})
-*/
-
-//require('')
-
-
-
-
-
-/* app.get('/api', (req, res) => {
-	connection.query('SELECT * FROM tb1', (error, rows) => {
-		if (error) throw error;
-		res.send(rows);
-	});
-});  */
-
-
-//app.get('/login', (res, ree) => {
-//	res.sendFile(pach.join(__dirname,'./', 'views', 'LOGIN.html'));
-//});
-
-
-
-
-
-
 app.use(
 	cors({
-		origin: 'http://3.34.130.34:3000',
+		origin: 'http://hometex.or1.shop',
 		credentials:true,
 	})
 );

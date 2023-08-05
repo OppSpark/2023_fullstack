@@ -1,8 +1,7 @@
 #!/usr/bin/node
 const express = require('express');
 const mysql = require('mysql');
-//const dbconfig = require('./config/dbinfo.js');
-//const connection = mysql.createConnection(dbconfig);
+
 const static = require('serve-static')
 const app = express();
 const port = 3000;
@@ -37,6 +36,7 @@ app.get('/LOGIN', (req, res) => {
 const dbConfig = {
 	host: 'localhost', 
 	user: 'OppSpark',
+	port: 3306,
 	password: '1515', 
 	database: '23_S', 
   };

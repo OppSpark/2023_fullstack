@@ -86,47 +86,8 @@ app.post('/register', (req, res) => {
 
   
 
-app.post('/login', (req, res) => {
-    const { login_id, login_pw } = req.body;
-
-    // MySQL에서 해당 id로 유저 정보 조회
-    const sql = 'SELECT * FROM user_info WHERE user_id = ?';
-    connection.query(sql, [login_id], (err, result) => {
-        if (err) {
-            console.error(err);
-            res.status(500).json({ error: 'Failed to login' });
-        } else {
-            if (result.length === 0) {
-                // 해당 id로 등록된 유저 정보가 없을 경우
-                res.redirect('/login');
-            } else {
-                const user = result[0];
-                bcrypt.compare(login_pw, user.user_pw, (err, isMatch) => {
-                    if (err) {
-                        console.error(err);
-                        res.status(500).json({ error: 'Failed to login' });
-                    } else if (isMatch) {
-                        // 비밀번호가 일치할 경우, 로그인 성공
-                        req.session.user = {
-                            id: user.user_id,
-                        };
-                        res.setHeader('Set-Cookie', ['user=' + user.user_id]);
-                        res.redirect('/');
-                    } else {
-                        // 비밀번호가 일치하지 않을 경우
-                        res.redirect('/login');
-                    }
-                });
-            }
-        }
-    });
-});
-
-
-
-
   //로그인 구현
-/* 
+
  app.post('/login', (req, res) => {
 	console.log('로그인');
 	const {lo_id, lo_pw } = req.body;
@@ -137,7 +98,11 @@ app.post('/login', (req, res) => {
                 // 해당 id로 등록된 유저 정보가 없을 경우
 				console.log('login fail');
                 res.redirect('/login');
-            } else {
+            }else{
+				console.log('pass');
+			}
+			
+			/* else {
                 if (lo_id === lo_pw) {
                     // 비밀번호가 일치할 경우, 로그인 성공
 					console.log('pass');
@@ -146,10 +111,10 @@ app.post('/login', (req, res) => {
 					console.log('login fail');
                     res.redirect('/login');
 				}
-			}
+			} */
 		
 	})
-}); */
+});
  
 
 

@@ -89,6 +89,26 @@ app.post('/REGISTER', (req, res) => {
 
 
 
+
+  //로그인 구현
+
+  app.post('/login', (req, res) => {
+    if (req.session.user ? req.session.user.id == 'test' : false) {
+        res.redirect('/');
+    }
+    else if(req.body.id == 'test' && req.body.pw == '1234') {
+        req.session.user = {
+            id: req.body.id,
+        };
+
+        res.setHeader('Set-Cookie', ['user=' + req.body.id]);
+        res.redirect('/');
+    }
+    else {
+        res.redirect('/login');
+    }
+});
+
   
 
   

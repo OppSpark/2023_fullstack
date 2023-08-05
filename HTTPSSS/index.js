@@ -102,16 +102,7 @@ app.post('/register', (req, res) => {
 				console.log('pass');
 			}
 			
-			/* else {
-                if (lo_id === lo_pw) {
-                    // 비밀번호가 일치할 경우, 로그인 성공
-					console.log('pass');
-                } else {
-                    // 비밀번호가 일치하지 않을 경우
-					console.log('login fail');
-                    res.redirect('/login');
-				}
-			} */
+	
 		
 	})
 });

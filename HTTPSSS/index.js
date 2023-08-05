@@ -137,6 +137,10 @@ app.get('/', (req, res) => {
 app.get('/REGISTER', function(request, response) {
     response.sendFile(path.join(__dirname + '/register.html'));
 });
+
+app.get('/LOGIN', function(request, response) {
+    response.sendFile(path.join(__dirname + '/LOGIN.html'));
+});
  
 
 //app.get('/login', (res, ree) => {

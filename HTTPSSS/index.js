@@ -94,7 +94,8 @@ app.post('/register', (req, res) => {
   //로그인 구현
 
   app.post('/login', (req, res) => {
-	const {lp_id, lo_pw } = req.body;
+	console.log('로그인');
+	const {lo_id, lo_pw } = req.body;
 	const sql = 'SELECT * FROM 23_S.user_info WHERE user_id = ? AND user_pw = ?';
 	connection.query(sql, [lo_id, lo_pw], (err, result) =>{
 		

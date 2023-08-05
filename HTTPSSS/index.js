@@ -47,11 +47,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/RGISTER', (req, res) => {
-	const { user_id, user_name, user_pw } = req.body;
+	const { re_email, re_name, re_pw } = req.body;
   
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
-	connection.query(sql, [user_id, user_name, user_pw], (err, result) => {
+	connection.query(sql, [re_id, re_name, re_pw], (err, result) => {
 	  if (err) {
 		console.error(err);
 		res.status(500).json({ error: 'Failed to register' });

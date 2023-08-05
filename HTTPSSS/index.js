@@ -15,8 +15,8 @@ const cors = require('cors');
 
 const dbConfig = {
 	host: 'localhost', // 데이터베이스 호스트 주소
-	user: 'OppSpark', // 데이터베이스 사용자명
-	password: 'y1515', // 사용자 비밀번호
+	user: 'OppSpark_DB', // 데이터베이스 사용자명
+	password: '1515', // 사용자 비밀번호
 	database: '23_S', // 데이터베이스 이름
   };
   

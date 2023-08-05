@@ -135,11 +135,11 @@ app.get('/', (req, res) => {
 
 
 app.get('/REGISTER', function(request, response) {
-    response.sendFile(path.join(__dirname + '/register.html'));
+    response.sendFile(path.join(__dirname + './', 'views','register.html'));
 });
 
 app.get('/LOGIN', function(request, response) {
-    response.sendFile(path.join(__dirname + '/LOGIN.html'));
+    response.sendFile(path.join(__dirname + './', 'views','LOGIN.html'));
 });
  
 

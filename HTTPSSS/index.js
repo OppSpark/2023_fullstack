@@ -94,24 +94,34 @@ app.post('/register', (req, res) => {
   //로그인 구현
 
   app.post('/login', (req, res) => {
-	console.log('login')
-
-	const { lo_id, lo_pw } = req.body;
-
-	const log = 'SELECT * FROM 23_S.user_info WHERE user_id = ? AND user_pw = ?';
-	connection.query(log, [lo_id, lo_pw],(err, result) => {
-
-		if (err) {
-			console.log(fail)
-		} else{
-			console.log(pass)
-		}
-
+	const {lp_id, lo_pw } = req.body;
+	const sql = 'SELECT * FROM 23_S.user_info WHERE user_id = ? AND user_pw = ?';
+	connection.query(sql, [lo_id, lo_pw], (err, result) =>{
 		
+		if (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Failed to login' });
+        } else {
+            if (result.length === 0) {
+                // 해당 id로 등록된 유저 정보가 없을 경우
+                res.redirect('/login');
+            } else {
+                const user = result[0];
+                if (user.user_pw === login_pw) {
+                    // 비밀번호가 일치할 경우, 로그인 성공
+                    req.session.user = {
+                        id: user.user_id,
+                    };
+                    res.setHeader('Set-Cookie', ['user=' + user.user_id]);
+                    res.redirect('/');
+                } else {
+                    // 비밀번호가 일치하지 않을 경우
+                    res.redirect
+				}
+			}
 	});
-});
-	/* 
-	if (req.session.user ? req.session.user.id == 'test' : false) {
+
+    if (req.session.user ? req.session.user.id == 'test' : false) {
         res.redirect('/');
     }
     else if(req.body.id == 'test' && req.body.pw == '1234') {
@@ -125,8 +135,8 @@ app.post('/register', (req, res) => {
     else {
         res.redirect('/login');
     }
-}); */
-    
+});
+
 
   
 

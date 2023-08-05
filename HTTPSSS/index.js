@@ -13,11 +13,13 @@ const cors = require('cors');
 
 
 
+
+//디비 정보 불러오는 내용
 const dbConfig = {
-	host: 'localhost', // 데이터베이스 호스트 주소
-	user: 'OppSpark_DB', // 데이터베이스 사용자명
-	password: '1515', // 사용자 비밀번호
-	database: '23_S', // 데이터베이스 이름
+	host: 'localhost', /
+	user: 'OppSpark_DB',
+	password: '1515', 
+	database: '23_S', 
   };
   
   // MySQL 데이터베이스 연결 설정
@@ -37,24 +39,30 @@ const dbConfig = {
 
 
 
+  //회원 가입 구현
+
+  app.use(bodyParser.json());
+
+  pp.post('/RGISTER', (req, res) => {
+	const { re_email, re_name,re_pw } = req.body;
+  
+	// MySQL에 회원 정보 삽입
+	const sql = 'INSERT INTO users (re_email, re_name, re_pw) VALUES (?, ?, ?)';
+	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
+	  if (err) {
+		console.error(err);
+		res.status(500).json({ error: 'Failed to register' });
+	  } else {
+		res.json({ message: 'Successfully registered' });
+	  }
+	});
+  });
+  
 
 
 
-/* 
-const dbconfig = require('./config/dbdata.json') 
-const pool = mysql.createPool({
-	connectionLimit: 10,
-	host: dbconfig.host,
-	user: dbconfig.user,
-    password: dbconfig.password,
-	database: dbconfig.database,
-	debug:false
 
-});
-
-*/
-
-
+  
 	
 //app.use(express.urlencoded({extended:true}))
 //app.use(express.json())

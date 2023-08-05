@@ -17,7 +17,7 @@ const cors = require('cors');
 //디비 정보 불러오는 내용
 const dbConfig = {
 	host: 'localhost', 
-	user: 'OppSpark',
+	user: 'OppSpark_DB',
 	password: '1515', 
 	database: '23_S', 
   };
@@ -43,8 +43,8 @@ const dbConfig = {
 
   //app.use(bodyParser.json());
 
-app.post('/RGISTER', (req, res) => {
-	const { user_id, user_name, user_pw } = req.body;
+  pp.post('/RGISTER', (req, res) => {
+	const { re_email, re_name,re_pw } = req.body;
   
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO users (re_email, re_name, re_pw) VALUES (?, ?, ?)';
@@ -134,12 +134,12 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/REGISTER', (req, res) => {
-    res.sendFile(path.join(__dirname,'./','views', 'REGISTER.html'));
+app.get('/REGISTER', function(request, response) {
+    response.sendFile(path.join(__dirname + './', 'views','register.html'));
 });
 
-app.get('/LOGIN', (req, res) => {
-    res.sendFile(path.join(__dirname, './', 'views','LOGIN.html'));
+app.get('/LOGIN', function(request, response) {
+    response.sendFile(path.join(__dirname + './', 'views','LOGIN.html'));
 });
  
 

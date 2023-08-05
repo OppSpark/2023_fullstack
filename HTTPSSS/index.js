@@ -103,7 +103,7 @@ app.post('/register', (req, res) => {
             console.error(err);
             res.status(500).json({ error: 'Failed to login' });
         } else {
-            if (result. equals == 0) {
+            if (!result[0]) {
                 // 해당 id로 등록된 유저 정보가 없을 경우
 				console.log('login fail');
                 res.redirect('/login');

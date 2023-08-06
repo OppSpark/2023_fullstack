@@ -56,7 +56,8 @@ const dbConfig = {
 
 
 
-
+// NEW POST 구현 방법
+// mysql 문법 INSERT INTO post_data (post_title, post_content, data_time) VALUES ('제목이 무엇인가요?', '여기는 내용입니다.', NOW());
 
 
   //회원 가입 구현

@@ -92,7 +92,6 @@ app.post('/register', (req, res) => {
 
 app.post('/new_post', (req, res) => {
 
-	
 	if (!'new_ti' || !'new_con') {
 		console.log('제목과 타이틀 중 값이 null 임');
 
@@ -105,10 +104,9 @@ app.post('/new_post', (req, res) => {
 	connection.query(inst, [new_ti, new_con], (err, result)=> {
 	if (err) {
 		 console.log('알 수 없는 오류가 발생했습니다.');
-		 return;
 	}
 	else{
-		onsole.log('성공!');
+		console.log('성공!');
 	}
 });
 	}

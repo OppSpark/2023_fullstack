@@ -26,9 +26,14 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname,'./','views', 'REGISTER.html'));
 });
 
-app.get('/LOGIN', (req, res) => {
+app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','LOGIN.html'));
 });
+app.get('/new_post', (req, res) => {
+    res.sendFile(path.join(__dirname, './', 'views','NEW_POST.html'));
+});
+
+
  
 
 
@@ -59,6 +64,27 @@ const dbConfig = {
 // NEW POST 구현 방법
 // mysql 문법 INSERT INTO post_data (post_title, post_content, data_time) VALUES ('제목이 무엇인가요?', '여기는 내용입니다.', NOW());
 
+app.post('/new_post', (req, res) => {
+
+	if (!new_ti || !new_con) {
+		return console.log('제목과 타이틀 중 값이 null 임');
+	  }
+
+	console.log('new post page');
+	const {new_ti, new_con } = req.body;
+
+	const inst = 'INSERT INTO post_data (post_title, post_content, data_time) VALUES (?, ?, NOW())';
+	connection.query(inst, [new_ti, new_con], (err, result))
+	if(err){
+		return console.log('알 수 없는 오류가 발생했습니다.');
+	}
+	else{
+		return console.log('성공!');
+	}
+});
+
+
+
 
   //회원 가입 구현
 
@@ -66,7 +92,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/register', (req, res) => {
-	console.log('회원가입 페이지');
+	console.log('reg page');
 	const {re_email, re_name, re_pw } = req.body;
   
 	// MySQL에 회원 정보 삽입

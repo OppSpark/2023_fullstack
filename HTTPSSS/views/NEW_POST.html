@@ -27,18 +27,18 @@
     </head>
         <body>
             <div id="headers"></div> <!-- 해더 불러오기 -->
-
+            <form method="post" action="new_post" >
             <div id = "post_text">
                 <div id = "postbox">
                     <div id = "new_post_box">
-                        <input tpye="text" style="width :90%; height : 4%;" placeholder="제목">
+                        <input tpye="text" name = "new_ti" style="width :90%; height : 4%;" placeholder="제목">
                         <hr/>
-                        <textarea onkeydown="resize(this)" style = "width :90%; height : 30%;" placeholder="내용"></textarea>
+                        <textarea onkeydown="resize(this)" style = "width :90%; height : 30%;" name = "new_con" placeholder="내용"></textarea>
                         
 
                         <div align="right">
                             <!-- 이모티콘 제거 수정 좋아요 -->
-                            
+                            <input type="submit" value="post upload">
                             <img src="./icon/free-icon-pencil-tool-1014883.png" style="height: 2.5%; margin-right: 5%; margin-top: 5%;" />
                             
                         </div>
@@ -48,7 +48,7 @@
 
 
             </div>
-            
+            </form>
 
         </body>
     

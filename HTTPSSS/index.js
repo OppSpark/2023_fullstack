@@ -32,7 +32,12 @@ app.get('/login', (req, res) => {
 app.get('/new_post', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','NEW_POST.html'));
 });
-
+app.get('/post', (req, res) => {
+    res.sendFile(path.join(__dirname, './', 'views','POST.html'));
+});
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, './', 'views','CONTECT_LIST.html'));
+});
 
  
 

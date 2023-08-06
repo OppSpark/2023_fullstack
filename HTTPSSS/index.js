@@ -93,7 +93,8 @@ app.post('/register', (req, res) => {
 app.post('/new_post', (req, res) => {
 
 	if (!'new_ti' || !'new_con') {
-		return console.log('제목과 타이틀 중 값이 null 임');
+		console.log('제목과 타이틀 중 값이 null 임');
+		return;
 	  }
 
 
@@ -102,10 +103,12 @@ app.post('/new_post', (req, res) => {
 	const inst = 'INSERT INTO post_data (post_title, post_content, data_time) VALUES (?, ?, NOW())';
 	connection.query(inst, [new_ti, new_con], (err, result)=> {
 	if (err) {
-		return console.log('알 수 없는 오류가 발생했습니다.');
+		 console.log('알 수 없는 오류가 발생했습니다.');
+		 return;
 	}
 	else{
-		return console.log('성공!');
+		console.log('성공!');
+		return c;
 	}
 });
 });

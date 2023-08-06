@@ -92,7 +92,7 @@ app.post('/register', (req, res) => {
 
 app.post('/new_post', (req, res) => {
 
-	if (!new_ti || !new_con) {
+	if (!'new_ti' || !'new_con') {
 		return console.log('제목과 타이틀 중 값이 null 임');
 	  }
 

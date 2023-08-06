@@ -75,9 +75,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/register', (req, res) => {
+
 	console.log('reg page');
 	const {re_email, re_name, re_pw } = req.body;
   
+	if(!re_email||!re_name ||!re_pw){
+		console.log('id pw name 값이 null 임');
+		res.redirect('/new_post');
+	}
+
+
+
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
 	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {

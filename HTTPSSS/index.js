@@ -92,13 +92,13 @@ app.post('/register', (req, res) => {
 
 app.post('/new_post', (req, res) => {
 
-	if (!'new_ti' || !'new_con') {
-		console.log('제목과 타이틀 중 값이 null 임');
-
-	  }
-
-	else{
 	const {new_ti, new_con } = req.body;
+	
+	if (!new_ti || !new_con) {
+		console.log('제목과 타이틀 중 값이 null 임');
+	}
+	else{
+	
 
 	const inst = 'INSERT INTO post_data (post_title, post_content, data_time) VALUES (?, ?, NOW())';
 	connection.query(inst, [new_ti, new_con], (err, result)=> {

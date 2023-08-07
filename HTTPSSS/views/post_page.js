@@ -1,52 +1,9 @@
 
-/*
-let POSTs = [
-    {
-        title: "세차 초보를 위한 디테일링 가이드! (용어편)",
-        contents: "안녕하세요. 세차 초보자 분들이 블로그나 유튜브 등에서 디테일링 고나련",
-    },
-    {
-        title: "세차 초2222보를 위한 디테일링 가이드! (용어편)",
-        contents: "안녕하세요. 22222222세차 초보자 분들이 블로그나 유튜브 등에서 디테일링 고나련",
-
-    },
-    {
-        title: "세차 초333333332222보를 위한 디테일링 가이드! (용어편)",
-        contents: "안녕하세요. 2333333332222222세차 초보자 분들이 블로그나 유튜브 등에서 디테일링 고나련",
-
-    },
-    {
-        title: "2444444444422일링 가이드! (용어편)",
-        contents: "44444444444그나 유튜브 등에서 디테일링 고나련",
-    }
-]
-let list_t  = document.querySelector("#post_title");
-let list_c  = document.querySelector("#post_contents");
-
-for(let i = 0; i < 4; i++){
-    let post1 = document.createElement("div");
-    let post2 = document.createElement("div");
-
-
-    let titletag = document.createElement("div");
-    titletag.innerHTML = POSTs[i].title;
-
-
-
-    let contentstag = document.createElement("div");
-    contentstag.innerHTML = POSTs[i].contents;
-
-    post1.appendChild(titletag);
-    post2.appendChild(contentstag);
-
-    list_t.appendChild(post1);
-    list_c.appendChild(post2);
-
-}
-*/
-
-
 const POSTs = [
+    {
+    title: "학원 알바 모집",
+    contents: "ㅈㅎ시 에서 수학 학원 알바를 모집하고 있습니다! 수학과 우대! 시급 300원",
+    },
     {
       title: "엄준식",
       contents: "어떠케 사람 이름이 엄준식",

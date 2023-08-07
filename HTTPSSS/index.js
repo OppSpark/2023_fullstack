@@ -83,15 +83,15 @@ app.post('/register', (req, res) => {
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
 	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
-	  if (err) {
+	if (err) {
 		console.error(err);
 		res.status(500).json({ error: 'Failed to register' });
-	  } else {
+	} else {
 		res.json({ message: 'Successfully registered' });
-	  }
+	}
 	});
-  });
-  
+});
+
 
 
   // NEW POST 구현 방법
@@ -111,8 +111,8 @@ app.post('/new_post', (req, res) => {
 	const inst = 'INSERT INTO post_data (post_title, post_content, data_time) VALUES (?, ?, NOW())';
 	connection.query(inst, [new_ti, new_con], (err, result)=> {
 	if (err) {
-		 console.log('알 수 없는 오류가 발생했습니다.');
-		 res.redirect('/new_post');
+		console.log('알 수 없는 오류가 발생했습니다.');
+		res.redirect('/new_post');
 	}
 	else{
 		console.log('성공!');
@@ -124,11 +124,10 @@ app.post('/new_post', (req, res) => {
 
 
 
-  
 
   //로그인 구현
 
- app.post('/login', (req, res) => {
+app.post('/login', (req, res) => {
 	console.log('로그인');
 	const {lo_id, lo_pw } = req.body;
 	const sql = 'SELECT * FROM 23_S.user_info WHERE user_id = ? AND user_pw = ?';
@@ -147,7 +146,7 @@ app.post('/new_post', (req, res) => {
 		
 	})
 });
- 
+
 
 app.use(
 	cors({

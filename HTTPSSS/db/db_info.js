@@ -1,4 +1,5 @@
 //디비 정보 불러오는 내용
+/* 
 const db_Config = {
 	host: 'localhost', 
 	user: 'OppSpark',
@@ -18,3 +19,18 @@ const db_Config = {
 	}
 	console.log('Connected to database!');
   });
+
+ */
+
+
+
+module.exports = {
+	db : {
+	host: 'localhost', 
+	user: 'OppSpark',
+	port: 3306,
+	password: '1515', 
+	database: '23_S', 
+	}
+
+}

@@ -1,7 +1,6 @@
 #!/usr/bin/node
 const express = require('express');
 
-
 const static = require('serve-static')
 const app = express();
 const port = 3000;
@@ -12,9 +11,11 @@ const { resourceUsage } = require('process');
 
 
 //db 정보 불러오기
-var dbConfig = require(__dirname + 'config/db_info.js');
+var dbConfig = require(__dirname + '/config/db_info.js');
+
 var conn = dbConfig.init();
-var dbConfig.connect(conn);
+
+dbConfig.connect(conn);
 
 
 

@@ -21,7 +21,7 @@ dbConfig.connect(conn);
 
 
 app.use(express.static(path.join(__dirname,'views')));
-app.use(express.static(path.join(__dirname,'db')));
+app.use(express.static(path.join(__dirname,'config')));
 
 express.applic
 

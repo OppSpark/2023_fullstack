@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const express = require('express');
-const mysql = require('mysql');
+
 
 const static = require('serve-static')
 const app = express();
@@ -12,8 +12,8 @@ const { resourceUsage } = require('process');
 
 
 //db 정보 불러오기
-const db_data = require('./db/db_info.js');
-const db_Config = db_data.db;
+var dbConfig = require(__dirname + '/db/db_info.js');
+dbConfig.connect(conn);
 
 
 

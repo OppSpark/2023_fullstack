@@ -24,13 +24,15 @@ const db_Config = {
 
 
 
+const mysql = require('mysql');
 module.exports = {
-	db : {
-	host: 'localhost', 
-	user: 'OppSpark',
-	port: 3306,
-	password: '1515', 
-	database: '23_S', 
-	}
-
-}
+    init: function () {
+        return mysql.createConnection(dbInfo);
+    },
+    connect: function(conn) {
+        conn.connect(function(err) {
+            if(err) console.error('mysql error : ' + err);
+            else console.log('mysql connect');
+        });
+    }
+};

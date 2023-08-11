@@ -21,6 +21,7 @@ const db_Config = db_data.db;
 
 
 app.use(express.static(path.join(__dirname,'views')));
+app.use(express.static(path.join(__dirname,'db')));
 
 express.applic
 

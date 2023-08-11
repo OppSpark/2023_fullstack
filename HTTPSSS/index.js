@@ -10,6 +10,10 @@ const cors = require('cors');
 const { resourceUsage } = require('process');
 
 
+
+app.use(express.static(path.join(__dirname,'views')));
+app.use(express.static(path.join(__dirname,'config')));
+
 //db 정보 불러오기
 var dbConfig = require(__dirname + './config/db_info.js');
 
@@ -20,8 +24,7 @@ dbConfig.connect(conn);
 
 
 
-app.use(express.static(path.join(__dirname,'views')));
-app.use(express.static(path.join(__dirname,'config')));
+
 
 express.applic
 

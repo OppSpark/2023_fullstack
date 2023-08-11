@@ -1,5 +1,5 @@
 //디비 정보 불러오는 내용
-const dbConfig = {
+const db_Config = {
 	host: 'localhost', 
 	user: 'OppSpark',
 	port: 3306,

@@ -11,7 +11,7 @@ const { resourceUsage } = require('process');
 
 
 //db 정보 불러오기
-var dbConfig = require(__dirname + '/config/db_info.js');
+var dbConfig = require(__dirname + './config/db_info.js');
 
 var conn = dbConfig.init();
 

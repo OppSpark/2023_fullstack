@@ -1,5 +1,4 @@
-
-const POSTs = [
+/* const POSTs = [
     {
     title: "학원 알바 모집",
     contents: "ㅈㅎ시 에서 수학 학원 알바를 모집하고 있습니다! 수학과 우대! 일급 13000원! 하루 6시간 근무, 밥값 없음",
@@ -25,8 +24,26 @@ const POSTs = [
       contents: "첫 번째 미국의 인플레이션은 뭄ㄴ제는 양적완화를 통한 후폭풍으로 해석할 수 있으나, 국제 유가의 고공행진, 러-우 전쟁등의 이슈로 불러온 영향력도 크다.",
     }
   ];
+ */
+
+  const bid = document.location.pathname.split('/')[3];
+  fetch(`/board/api/${bid}`)
+  .then(res => res.json())
+  .then(myJson => {
+      const title = postboxClone.querySelector('#post_title').textContent = title;
+      const contents =  postboxClone.querySelector('#post_contents').textContent = postContents;
+      
+     
+
+  });
+
   
-  // postbox 틀 가저옴
+
+
+
+
+  /* 
+    // postbox 틀 가저옴
   const postbox = document.getElementById('postbox_in');
   
   for (let i = 0; i < POSTs.length; i++) {
@@ -45,6 +62,9 @@ const POSTs = [
   
   // 첫번 째 포스트 박스 삭제
   postbox.remove();
+  
+  */
+
   
 
 

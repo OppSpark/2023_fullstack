@@ -95,7 +95,7 @@ app.post('/register', (req, res) => {
 	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
 	if (err) {
 		console.error(err);
-		res.status(500).json({ error: 'Failed to register' });
+		alert('ID 와 비밀번호, 이름을 를 입력해주세요.')
 	} else {
 		res.json({ message: 'Successfully registered' });
 	}
@@ -113,7 +113,7 @@ app.post('/new_post', (req, res) => {
 
 	if (!new_ti || !new_con) {
 		console.log('제목과 타이틀 중 값이 null 임');
-		alert('ID 와 비밀번호, 이름을 를 입력해주세요.')
+		
 		res.redirect('/new_post');
 	}
 	else{

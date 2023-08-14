@@ -191,11 +191,3 @@ app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });
 
-
-
-
-app.get('/post', (req, res) => {
-	res.json({ title: "학원 알바 모집", contents : "첫 번째 미국의 인플레이션은 문제는 양적완화를 통한 후폭풍으로 해석할 수 있으나, 국제 유가의 고공행진, 러-우 전쟁등의 이슈로 불러온 영향력도 크다."});
-}
-);
-

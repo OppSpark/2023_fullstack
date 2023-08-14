@@ -180,24 +180,9 @@ app.listen(port, () => {
 
 
 
-app.get('/', (req, res) => {
-    // 데이터 조회 쿼리 실행 (최신순)
-    const query = 'SELECT * FROM 23_S.user_info WHERE  user_id = ? AND user_pw = ?';
-    connection.query(query, (error, results, fields) => {
-        if (error) {
-            console.error('Error querying database:', error);
-            return;
-        }
 
-        // EJS 템플릿 엔진을 사용하여 게시글 목록 HTML 렌더링
-        res.render('index', { posts: results });
-    });
-});
-
-
-/* 
 app.get('/post', (req, res) => {
-	res.json({ title: "학원 알바 모집", contents : "첫 번째 미국의 인플레이션은 뭄ㄴ제는 양적완화를 통한 후폭풍으로 해석할 수 있으나, 국제 유가의 고공행진, 러-우 전쟁등의 이슈로 불러온 영향력도 크다."});
+	res.json({ title: "학원 알바 모집", contents : "첫 번째 미국의 인플레이션은 문제는 양적완화를 통한 후폭풍으로 해석할 수 있으나, 국제 유가의 고공행진, 러-우 전쟁등의 이슈로 불러온 영향력도 크다."});
 }
 );
- */
+

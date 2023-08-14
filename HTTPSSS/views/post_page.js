@@ -27,15 +27,15 @@
  */
 
   const bid = document.location.pathname.split('/')[3];
-  fetch(`/board/api/${bid}`)
+  fetch(`/post/${bid}`)
   .then(res => res.json())
   .then(myJson => {
-      const title = postboxClone.querySelector('#post_title').textContent = title;
-      const contents =  postboxClone.querySelector('#post_contents').textContent = postContents;
+      const post_title = postboxClone.querySelector('#post_title'); 
+      const post_contents =  postboxClone.querySelector('#post_contents');
       
-     
-
-  });
+      post_title.textContent = myJson.post_title;
+      post_contents.textContent = myJson.post_contents;
+    });
 
   
 

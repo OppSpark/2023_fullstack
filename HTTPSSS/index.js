@@ -93,9 +93,11 @@ app.post('/register', (req, res) => {
 	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
 	if (err) {
 		console.error(err);
-		alert('ID 와 비밀번호, 이름을 를 입력해주세요.')
+
+		res.write("<script>alert('ID 와 비밀번호, 이름을 를 입력해주세요')</script>");
 	} else {
-		alert('회원가입이 완료 되었습니다.')
+
+		res.write("<script>alert('회원가입이 완료 되었습니다.')</script>");
 	}
 	});
 });
@@ -112,6 +114,8 @@ app.post('/new_post', (req, res) => {
 	if (!new_ti || !new_con) {
 		console.log('제목과 타이틀 중 값이 null 임');
 		
+		res.write("<script>alert('제목과 내용을 입력해주세요')</script>");
+		
 		res.redirect('/new_post');
 	}
 	else{
@@ -124,7 +128,7 @@ app.post('/new_post', (req, res) => {
 		res.redirect('/new_post');
 	}
 	else{
-		
+		res.write("<script>alert('작성 완료!')</script>");
 		console.log('성공!');
 	}
 });
@@ -152,17 +156,17 @@ app.post('/login', (req, res) => {
             if (!result[0]) {
                 // 해당 id로 등록된 유저 정보가 없을 경우
 				console.log('login fail');
-				alert('아이디와 비밀번호를 다시 한 번 확인해주세요!')
+				res.write("<script>alert('아이디와 비밀번호를 다시 한 번 확인해주세요')</script>");
                 res.redirect('/login');
 				
             }else{
 				// DB에 해당 ID가 있을 경우
 				console.log('pass');
-				alert('로그인 되었습니다!')
+				res.write("<script>alert('로그인 되었습니다.')</script>");
 			}
 			res.redirect('/login');
 	
-		
+	res.write("<sc><>")	
 	})
 });
 

@@ -113,6 +113,7 @@ app.post('/new_post', (req, res) => {
 
 	if (!new_ti || !new_con) {
 		console.log('제목과 타이틀 중 값이 null 임');
+		alert('ID 와 비밀번호, 이름을 를 입력해주세요.')
 		res.redirect('/new_post');
 	}
 	else{
@@ -125,6 +126,7 @@ app.post('/new_post', (req, res) => {
 		res.redirect('/new_post');
 	}
 	else{
+		alert('회원가입이 완료 되었습니다.')
 		console.log('성공!');
 	}
 });
@@ -137,6 +139,24 @@ app.post('/new_post', (req, res) => {
 
   //로그인 구현
 
+
+  
+  app.post('/login', (req, res) => {
+	const { userid, userpw } = req.body;
+  
+	if (userid === user.id && userpw === user.pw) {
+	  res.setHeader('Set-Cookie', 'login=true');
+	} else {
+	  res.setHeader('Set-Cookie', 'login=false');
+	}
+  
+	res.redirect('/');
+  });
+
+
+
+
+
 app.post('/login', (req, res) => {
 	console.log('로그인');
 	const {lo_id, lo_pw } = req.body;
@@ -146,16 +166,23 @@ app.post('/login', (req, res) => {
             if (!result[0]) {
                 // 해당 id로 등록된 유저 정보가 없을 경우
 				console.log('login fail');
+				alert('아이디와 비밀번호를 다시 한 번 확인해주세요!')
                 res.redirect('/login');
+				
             }else{
 				// DB에 해당 ID가 있을 경우
 				console.log('pass');
+				alert('로그인 되었습니다!')
 			}
-			
+			res.redirect('/login');
 	
 		
 	})
 });
+
+
+
+
 
 
 app.use(

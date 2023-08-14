@@ -88,6 +88,15 @@ app.post('/register', (req, res) => {
 	
 	const {re_email, re_name, re_pw } = req.body;
 
+	const checkSql = 'SELECT * FROM user_info WHERE user_id = ?';
+
+	connection.query(checkSql, [re_email], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.send("<script>alert('오류가 발생했습니다.'); history.back();</script>");
+        
+        } else {
+
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
 	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
@@ -99,7 +108,9 @@ app.post('/register', (req, res) => {
 
 		res.send("<script>alert('회원가입이 완료 되었습니다.'); history.back(); </script>");
 	}
+	
 	});
+}
 });
 
 

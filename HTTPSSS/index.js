@@ -85,10 +85,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/register', (req, res) => {
-
 	
 	const {re_email, re_name, re_pw } = req.body;
-
 
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
@@ -97,7 +95,7 @@ app.post('/register', (req, res) => {
 		console.error(err);
 		alert('ID 와 비밀번호, 이름을 를 입력해주세요.')
 	} else {
-		res.json({ message: 'Successfully registered' });
+		alert('회원가입이 완료 되었습니다.')
 	}
 	});
 });
@@ -126,7 +124,7 @@ app.post('/new_post', (req, res) => {
 		res.redirect('/new_post');
 	}
 	else{
-		alert('회원가입이 완료 되었습니다.')
+		
 		console.log('성공!');
 	}
 });
@@ -140,18 +138,6 @@ app.post('/new_post', (req, res) => {
   //로그인 구현
 
 
-  
-  app.post('/login', (req, res) => {
-	const { userid, userpw } = req.body;
-  
-	if (userid === user.id && userpw === user.pw) {
-	  res.setHeader('Set-Cookie', 'login=true');
-	} else {
-	  res.setHeader('Set-Cookie', 'login=false');
-	}
-  
-	res.redirect('/');
-  });
 
 
 

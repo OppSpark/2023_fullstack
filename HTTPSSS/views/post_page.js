@@ -72,7 +72,7 @@
 
 
   $(document).ready(function() {
-    $.get('/posts', function(posts) {
+    $.get('/post', function(posts) {
       posts.forEach(post => {
         // 게시판에 직접 게시물 추가
         addPostToBoard(post.post_title, post.post_content);

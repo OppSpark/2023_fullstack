@@ -39,7 +39,7 @@ app.get('/new_post', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','NEW_POST.html'));
 });
 app.get('/post', (req, res) => {
-    res.sendFile(path.join(__dirname, './', 'views','POST.html'));
+    res.sendFile(path.join(__dirname, './', 'views','POST.ejs'));
 });
 app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','CONTECT_LIST.html'));

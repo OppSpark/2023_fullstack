@@ -39,7 +39,7 @@ app.get('/new_post', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','NEW_POST.html'));
 });
 app.get('/post', (req, res) => {
-    res.sendFile(path.join(__dirname, './', 'views','POST.ejs'));
+    res.sendFile(path.join(__dirname, './', 'views','POST.html'));
 });
 app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','CONTECT_LIST.html'));
@@ -178,35 +178,22 @@ app.post('/login', (req, res) => {
 
 
 /*  */
-function getBoardData(callback) {
-	const query = 'SELECT post_title, post_content FROM post_data;';
+
+function getPostData(callback) {
+	const query = 'SELECT post_title, post_content FROM post_data ORDER BY id DESC LIMIT 1'; // id 기준 내림차순으로 가장 최신 게시물 1개만 가져옴
 	connection.query(query, (err, result, fields) => {
 	  if (err) throw err;
-	  callback(result);
+	  callback(result[0]);
 	});
   }
 
-  app.get('/post', (req, res) => {
-	getBoardData((data) => {
-	  res.json(data);
-	});
+  app.use(express.static('./')); // 정적 파일 제공 (HTML, CSS, JS)
+
+app.get('/post', (req, res) => {
+  getPostData((data) => {
+    res.json(data);
   });
-
-
-  app.get('/post', (req, res) => {
-	let sql = 'SELECT post_title, post_content FROM post_data';
-	db.query(sql, (err, posts) => {
-	  if (err) throw err;
-	  res.render('post', { posts: posts });
-	});
-  });
-
-
-
-
-
-
-
+});
 
 
 

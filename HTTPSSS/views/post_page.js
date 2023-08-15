@@ -26,7 +26,7 @@
   ];
  */
 
-  const bid = document.location.pathname.split('/')[3];
+  /*   const bid = document.location.pathname.split('/')[3];
   fetch(`/post/${bid}`)
   .then(res => res.json())
   .then(myJson => {
@@ -36,8 +36,22 @@
       post_title.textContent = myJson.post_title;
       post_contents.textContent = myJson.post_contents;
     });
+ */
 
   
+
+    var xhr = new XMLHttpRequest();
+xhr.open('GET', '/post', true);
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    var postData = JSON.parse(xhr.responseText);
+    document.getElementById('post_title').innerHTML = postData.post_title;
+    document.getElementById('post_contents').innerHTML = postData.post_content;
+  } else {
+    console.error('Error occurred while fetching data:', xhr.status);
+  }
+};
+xhr.send();
 
 
 

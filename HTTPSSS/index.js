@@ -187,7 +187,7 @@ function getPostData(callback) {
 	});
   }
 
-  app.use(express.static('./')); // 정적 파일 제공 (HTML, CSS, JS)
+  app.use(express.static('./POST.html')); // 정적 파일 제공 (HTML, CSS, JS)
 
 app.get('/post', (req, res) => {
   getPostData((data) => {

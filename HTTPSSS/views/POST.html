@@ -39,7 +39,18 @@
                         </div>
                         <!-- 게시물 리스트... -->
                       </div>
-                      <script src="./post_page22.js"> </script>
+                      <script>fetch('/api/board')
+                        .then((response) => response.json())
+                        .then((boardData) => {
+                          const boardElement = document.getElementById('board');
+                          for (const postData of boardData) {
+                            const postElement = document.createElement('div');
+                            postElement.classList.add('post');
+                            postElement.innerHTML =  '<h2>${postData.post_title}</h2> <p>${postData.post_content</p>; '
+                             
+                            boardElement.appendChild(postElement);
+                          }
+                        });</script>
 
 
 

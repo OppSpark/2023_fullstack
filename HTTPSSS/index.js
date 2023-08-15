@@ -171,7 +171,7 @@ app.post('/login', (req, res) => {
 
 
 function getBoardData(callback) {
-	const query = 'SELECT title, content, author FROM post_title INNER JOIN post_content ON post_title.id = post_content.post_id';
+	const query = 'SELECT * FROM 23_S.post_data;';
 	connection.query(query, (err, result, fields) => {
 	  if (err) throw err;
 	  callback(result);

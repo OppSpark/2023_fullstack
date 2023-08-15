@@ -38,7 +38,6 @@
                           <p class="content"></p>
                   
                         </div>
-                        <!-- 게시물 리스트... -->
                       </div>
                       <script>fetch('/post')
                         .then((response) => response.json())
@@ -53,6 +52,15 @@
                         });</script>
 
 
+
+<tbody>
+    <% posts.forEach(post => { %>
+       <tr>
+          <td><%= post.post_title %></td>
+          <td><%= post.post_content %></td>
+       </tr>
+    <% }); %>
+ </tbody>
 
 
 

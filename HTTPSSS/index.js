@@ -170,8 +170,10 @@ app.post('/login', (req, res) => {
 });
 
 
+
+/*  */
 function getBoardData(callback) {
-	const query = 'SELECT * FROM 23_S.post_data;';
+	const query = 'SELECT post_title, post_content FROM post_data;';
 	connection.query(query, (err, result, fields) => {
 	  if (err) throw err;
 	  callback(result);

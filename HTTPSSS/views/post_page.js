@@ -67,29 +67,3 @@
   */
 
   
-
-
-
-
-  $(document).ready(function() {
-    $.get('/post', function(posts) {
-      let parsedPosts = JSON.parse(posts); // 새로 추가
-      parsedPosts.forEach(post => {
-        addPostToBoard(post.post_title, post.post_content);
-      });
-    });
-  });
-
-  function addPostToBoard(title, content) {
-    const postBox = `
-      <div id="postbox_in">
-        <div class="title">${title}</div>
-        <hr />
-        <div class="cont">${content}</div>
-        <hr />
-        <div align="right"></div>
-      </div>
-    `;
-  
-    $('#post_text').append(postBox);
-  }

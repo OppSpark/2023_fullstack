@@ -170,6 +170,31 @@ app.post('/login', (req, res) => {
 });
 
 
+function getBoardData(callback) {
+	const query = 'SELECT title, content, author FROM post_title INNER JOIN post_content ON post_title.id = post_content.post_id';
+	connection.query(query, (err, result, fields) => {
+	  if (err) throw err;
+	  callback(result);
+	});
+  }
+
+  app.get('/post', (req, res) => {
+	getBoardData((data) => {
+	  res.json(data);
+	});
+  });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

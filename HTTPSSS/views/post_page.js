@@ -73,8 +73,8 @@
 
   $(document).ready(function() {
     $.get('/post', function(posts) {
-      posts.forEach(post => {
-        // 게시판에 직접 게시물 추가
+      let parsedPosts = JSON.parse(posts); // 새로 추가
+      parsedPosts.forEach(post => {
         addPostToBoard(post.post_title, post.post_content);
       });
     });

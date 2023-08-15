@@ -1,7 +1,8 @@
 #!/usr/bin/node
 const express = require('express');
 const mysql = require('mysql');
-
+const ejs = require('ejs');
+const dotenv = require('dotenv');
 const static = require('serve-static')
 const app = express();
 const port = 3000;
@@ -10,6 +11,11 @@ const path = require('path');
 const cors = require('cors');
 const { resourceUsage } = require('process');
 
+
+const app1 = express();
+app1.use(bodyParser.urlencoded({ extended: false }));
+app1.use(bodyParser.json());
+app1.set('view engine', 'ejs');
 
 
 app.use(express.static(path.join(__dirname,'views')));
@@ -187,6 +193,13 @@ function getBoardData(callback) {
   });
 
 
+  app.get('/post', (req, res) => {
+	let sql = 'SELECT post_title, post_content FROM post_data';
+	db.query(sql, (err, posts) => {
+	  if (err) throw err;
+	  res.render('post', { posts: posts });
+	});
+  });
 
 
 

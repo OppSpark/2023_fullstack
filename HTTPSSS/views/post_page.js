@@ -66,4 +66,14 @@
   
   */
 
+
+  $(document).ready(function() {
+    $.get('/post', function(posts) {
+      let parsedPosts = JSON.parse(posts); // 새로 추가
+      parsedPosts.forEach(post => {
+        addPostToBoard(post.post_title, post.post_content);
+      });
+    });
+  });
+
   

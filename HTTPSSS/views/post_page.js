@@ -66,14 +66,3 @@
   
   */
 
-
-  $(document).ready(function() {
-    $.get('/post', function(post) {
-      let parsedPosts = JSON.parse(post); // 새로 추가
-      parsedPosts.forEach(post => {
-        addPostToBoard(post.post_title, post.post_content);
-      });
-    });
-  });
-
-  

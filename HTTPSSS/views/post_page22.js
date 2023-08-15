@@ -37,7 +37,7 @@ for (var i = 0; i < boardData.length; i++) {
 }
  */
 
-fetch('/api/board')
+fetch('/post')
 .then((response) => response.json())
 .then((boardData) => {
   const boardElement = document.getElementById('board');

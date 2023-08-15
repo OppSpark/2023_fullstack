@@ -178,6 +178,26 @@ app.post('/login', (req, res) => {
 
 
 
+/*  */
+
+function getPostData(callback) {
+	const query = 'SELECT post_title, post_content FROM post_data ORDER BY id DESC LIMIT 1'; // id 기준 내림차순으로 가장 최신 게시물 1개만 가져옴
+	connection.query(query, (err, result, fields) => {
+	  if (err) throw err;
+	  callback(result[0]);
+	});
+  }
+
+  app.use(express.static('./POST.html')); // 정적 파일 제공 (HTML, CSS, JS)
+
+app.get('/post', (req, res) => {
+  getPostData((data) => {
+    res.json(data);
+  });
+});
+
+
+
 
 
 

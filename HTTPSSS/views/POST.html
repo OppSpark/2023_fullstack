@@ -39,7 +39,7 @@
                         </div>
                         <!-- 게시물 리스트... -->
                       </div>
-                      <script>fetch('/api/board')
+                      <script>fetch('/post')
                         .then((response) => response.json())
                         .then((boardData) => {
                           const boardElement = document.getElementById('board');

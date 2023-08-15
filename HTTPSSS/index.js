@@ -186,9 +186,9 @@ app.post('/login', (req, res) => {
 
 app.get('/post', (req, res) => {
 	let sql = 'SELECT post_title, post_content FROM post_data';
-	db.query(sql, (err, posts) => {
+	db.query(sql, (err, post) => {
 	  if (err) throw err;
-	  res.render('board', { posts: posts });
+	  res.render('board', { post: post });
 	});
   });
 

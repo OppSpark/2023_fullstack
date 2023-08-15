@@ -109,25 +109,3 @@
                 margin-right: 25%;
                 padding-bottom : 5%;
             }
-
-            #post_title{  /* 포스트에서 제묵 구성하는 것 */
-                font-size: 2.2vw;
-            }
-            #post_contents{/* 포스트에서 내용 구성하는 것 */
-                font-size: 1.5vw;
-
-            }
-
-            #board {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-              }
-              
-              .post {
-                background-color: #f5f5f5;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                padding: 1rem;
-                flex-basis: calc(33333% - 1rem);
-              }

@@ -40,19 +40,6 @@
 
   
 
-    var xhr = new XMLHttpRequest();
-xhr.open('GET', '/post', true);
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    var postData = JSON.parse(xhr.responseText);
-    document.getElementById('post_title').innerHTML = postData.post_title;
-    document.getElementById('post_contents').innerHTML = postData.post_content;
-  } else {
-    console.error('Error occurred while fetching data:', xhr.status);
-  }
-};
-xhr.send();
-
 
 
 
@@ -82,3 +69,27 @@ xhr.send();
   
 
 
+
+
+  $(document).ready(function() {
+    $.get('/posts', function(posts) {
+      posts.forEach(post => {
+        // 게시판에 직접 게시물 추가
+        addPostToBoard(post.post_title, post.post_content);
+      });
+    });
+  });
+
+  function addPostToBoard(title, content) {
+    const postBox = `
+      <div id="postbox_in">
+        <div class="title">${title}</div>
+        <hr />
+        <div class="cont">${content}</div>
+        <hr />
+        <div align="right"></div>
+      </div>
+    `;
+  
+    $('#post_text').append(postBox);
+  }

@@ -54,7 +54,7 @@
                 .then(response => response.json())
                 .then(data => {
                     let post_box = document.getElementById('postbox');
-                    data.rereverse().forEach(post => {
+                    data.reverse().forEach(post => {
                         let post_title = post.post_title;
                         let post_content = post.post_content;
                         let html = `

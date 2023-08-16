@@ -217,7 +217,7 @@ app.get('/post', (req, res) => {
       console.error(error);
       res.status(500).send('Internal Server Error');
     } else {
-      res.json(results);
+      res.send(results);
     }
   });
 });

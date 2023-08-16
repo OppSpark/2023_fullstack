@@ -36,7 +36,7 @@
           throw new Error('Failed to fetch posts');
         }
       })
-      .then((results) => {
+      .then((response) => {
         displayPosts(post);
  
 }
@@ -47,13 +47,13 @@
 
 
   // 서버에서 전달받은 게시물을 동적으로 생성하는 함수
-  function displayPosts(response) {
+  function displayPosts(post) {
     const postbox = document.getElementById('postbox_in');
 
-    for (let i = 0; i < response.length; i++) {
+    for (let i = 0; i < post.length; i++) {
       const postboxClone = postbox.cloneNode(true);
-      const postTitle = response[i].post_title;
-      const postContents = response[i].post_content;
+      const postTitle = post[i].post_title;
+      const postContents = post[i].post_content;
       postboxClone.querySelector('#post_title').textContent = postTitle;
       postboxClone.querySelector('#post_contents').textContent = postContents;
       document.body.appendChild(postboxClone);

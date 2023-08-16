@@ -52,7 +52,7 @@
 
             <script>
                 fetch('/api/post')
-                    .then(response => response.json())
+                    .then(results => results.json())
                     .then(data => {
                         let post_box = document.getElementById('postbox_in');
                         data.results.forEach(post => { // 수정된 부분

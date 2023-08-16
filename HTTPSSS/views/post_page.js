@@ -25,7 +25,7 @@
   .catch((error) => {
     console.error(error);
   }); */
-  function fetchPosts() {
+function fetchPosts() {
     fetch('/post')
       .then((response) => {
         console.log(response); // 응답 데이터를 출력
@@ -37,7 +37,7 @@
         }
       })
       .then((post) => {
-        //displayPosts(post);
+        displayPosts(post);
       })
       .catch((error) => {
         console.error(error);

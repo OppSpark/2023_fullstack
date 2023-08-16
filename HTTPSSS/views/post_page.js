@@ -37,36 +37,23 @@
         }
       })
       .then((results) => {
-        //displayPosts(post);
-        const postbox = document.getElementById('postbox_in');
-
-    for (let i = 0; i < results.length; i++) {
-      const postboxClone = postbox.cloneNode(true);
-      const postTitle = results[i].post_title;
-      const postContents = results[i].post_content;
-      postboxClone.querySelector('#post_title').textContent = postTitle;
-      postboxClone.querySelector('#post_contents').textContent = postContents;
-      document.body.appendChild(postboxClone);
-    }
-    postbox.remove();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        displayPosts(post);
+ 
 }
+  )}
 
   // 페이지 로딩이 완료되면 게시물 데이터를 불러옵니다
   document.addEventListener('DOMContentLoaded', fetchPosts);
 
 
   // 서버에서 전달받은 게시물을 동적으로 생성하는 함수
-  function displayPosts(post) {
+  function displayPosts(results) {
     const postbox = document.getElementById('postbox_in');
 
-    for (let i = 0; i < post.length; i++) {
+    for (let i = 0; i < results.length; i++) {
       const postboxClone = postbox.cloneNode(true);
-      const postTitle = post[i].post_title;
-      const postContents = post[i].post_content;
+      const postTitle = results[i].post_title;
+      const postContents = results[i].post_content;
       postboxClone.querySelector('#post_title').textContent = postTitle;
       postboxClone.querySelector('#post_contents').textContent = postContents;
       document.body.appendChild(postboxClone);

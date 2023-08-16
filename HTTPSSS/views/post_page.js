@@ -36,14 +36,14 @@
           throw new Error('Failed to fetch posts');
         }
       })
-      .then((post) => {
+      .then((results) => {
         //displayPosts(post);
         const postbox = document.getElementById('postbox_in');
 
-    for (let i = 0; i < post.length; i++) {
+    for (let i = 0; i < results.length; i++) {
       const postboxClone = postbox.cloneNode(true);
-      const postTitle = post[i].post_title;
-      const postContents = post[i].post_content;
+      const postTitle = results[i].post_title;
+      const postContents = results[i].post_content;
       postboxClone.querySelector('#post_title').textContent = postTitle;
       postboxClone.querySelector('#post_contents').textContent = postContents;
       document.body.appendChild(postboxClone);

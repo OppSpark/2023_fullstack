@@ -234,7 +234,7 @@ function fetchPosts() {
         }
       })
       .then((posts) => {
-        displayPosts(posts);
+        displayPosts(post);
       })
       .catch((error) => {
         console.error(error);

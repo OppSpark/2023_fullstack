@@ -55,7 +55,7 @@
           throw new Error('Failed to fetch posts');
         }
       })
-      .then((posts) => {
+      .then((post) => {
         displayPosts(post);
       })
       .catch((error) => {

@@ -1,6 +1,6 @@
 
             body{/* 배경색상 */
-                background-color: bebebe;
+                background-color: #bebebe;
             }
             #Head{ /* 해드를 구성하는 것 */
                 color: aliceblue;
@@ -108,12 +108,4 @@
                 margin-left: 25%;
                 margin-right: 25%;
                 padding-bottom : 5%;
-            }
-
-            #post_title{  /* 포스트에서 제묵 구성하는 것 */
-                font-size: 2.2vw;
-            }
-            #post_contents{/* 포스트에서 내용 구성하는 것 */
-                font-size: 1.5vw;
-
             }

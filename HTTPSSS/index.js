@@ -1,7 +1,8 @@
 #!/usr/bin/node
 const express = require('express');
 const mysql = require('mysql');
-
+const ejs = require('ejs');
+const dotenv = require('dotenv');
 const static = require('serve-static')
 const app = express();
 const port = 3000;
@@ -10,6 +11,15 @@ const path = require('path');
 const cors = require('cors');
 const { resourceUsage } = require('process');
 
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 app.use(express.static(path.join(__dirname,'views')));
@@ -32,6 +42,7 @@ app.get('/login', (req, res) => {
 app.get('/new_post', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','NEW_POST.html'));
 });
+
 app.get('/post', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','POST.html'));
 });
@@ -168,6 +179,8 @@ app.post('/login', (req, res) => {
 	
 	})
 });
+
+
 
 
 

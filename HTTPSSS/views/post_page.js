@@ -26,7 +26,7 @@
   ];
  */
 
-  const bid = document.location.pathname.split('/')[3];
+  /*   const bid = document.location.pathname.split('/')[3];
   fetch(`/post/${bid}`)
   .then(res => res.json())
   .then(myJson => {
@@ -36,6 +36,7 @@
       post_title.textContent = myJson.post_title;
       post_contents.textContent = myJson.post_contents;
     });
+ */
 
   
 
@@ -64,7 +65,4 @@
   postbox.remove();
   
   */
-
-  
-
 

@@ -30,7 +30,7 @@
 
 
   function fetchPosts() {
-    fetch('/api/post')
+    fetch('/post')
       .then((response) => {
         console.log(response); // 응답 데이터를 출력
         

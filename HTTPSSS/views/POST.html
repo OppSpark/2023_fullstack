@@ -1,56 +1,55 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <i class="fa-solid fa-heart" style="color: #000000;"></i> <!-- 하트 아이콘-->
-        <i class="fa-solid fa-pen" style="color: #000000;"></i> <!--연필-->
-
-
         <link rel="stylesheet" href="css/HTML_HW.css" type="text/css"><!-- CSS 불러오기 -->
-
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- fontawesome 에서 CDN 로 가져온 스크립트 -->
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> <!-- 해더 include JS -->
         <script type="text/javascript">   
         $(document).ready( function() {
-        $("#headers").load("header.html"); 
+          $("#headers").load("header.html"); 
         });
         </script>
-
     </head>
-        <body>
-            
-            <div id="headers"></div> <!-- 해더 불러오기 -->
+    <body>
+        <div id="headers"></div> <!-- 해더 불러오기 -->
 
-                    <!-- 호버 기능 구현 해야함! 나중에 할 것 -- 다하고 주석 제거 -- -->
-            <section id ="post_text">  <!-- NEW POST 와 검색창 구현 코드 -->
+        <section id="post_text">  <!-- NEW POST 와 검색창 구현 코드 -->
+            <div id="scbox">
+                <p><a id="NT" href="/new_post" target="_self" style="text-decoration:none; color: #000000;">글 작성하기!</a></p> <!-- 뉴 포스트 -->
+                <div id="searchbox">
+                    <input type="text" placeholder="Search"> <!-- 검색창과 검색 버튼 -->
+                    <button>검색</button> 
+                </div>
+            </div>
+            <div id="postbox_in"></div>
+        </section>
 
-                    <div id = "scbox">
-                        <p><a id="NT" href="/new_post" target="_self" style="text-decoration:none; color: #000000;" >글 작성하기!</a></p> <!-- 뉴 포스트 -->
-                        <div id = "searchbox">
-                            <input tpye="text" placeholder="Search"> <!-- 검색창과 검색 버튼 -->
-                            <button>검색</button> 
-                        </div>
-                    </div>
-
-
-
-
-
-
-                    <div id="postbox_in">
-                        <div class="title" id="post_title">${post.post_title}</div> <!-- 제목 넣는 JS  -->
-                        <hr />
-                        <div class="cont" id="post_contents">${post_content}</div> <!-- 본문 넣는 JS -->
-                        <hr />
-                        <div align="right">
-                            <!-- 이모티콘 제거 수정 좋아요 -->
-                            <!-- <img src="./icon/free-icon-heart-shape-silhouette-25451.png" style="height: 2.5%; margin-left: 1.5%" /> -->
-                            
-                        </div>
-                    </div>
-                    <script src="./post_page.js"> </script>
-            </section>
-
-        </body>
-    
+        <script>
+            fetch('/api/post')
+                .then(response => response.json())
+                .then(data => {
+                    let post_box = document.getElementById('postbox_in');
+                    data.forEach(post => {
+                        let post_title = post.post_title;
+                        let post_content = post.post_content;
+                        let html = `
+                            <div class="postbox">
+                                <div class="title">${post_title}</div>
+                                <hr />
+                                <div class="cont">${post_content}</div>
+                                <hr />
+                                <div align="right">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                        `;
+                        post_box.innerHTML += html;
+                    });
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        </script>
+    </body>
 </html>
-
 

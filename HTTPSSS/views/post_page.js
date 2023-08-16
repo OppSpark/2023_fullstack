@@ -42,6 +42,7 @@
     postbox.remove();
   }
 
+
   // 서버에서 게시물 데이터를 받아오는 함수
   function fetchPosts() {
     fetch('/post')

@@ -211,7 +211,7 @@ app.listen(port, () => {
 
 app.use(express.json());
 
-app.post('/post', (req, res) => {
+app.get('/post', (req, res) => {
     connection.query('SELECT post_title, post_content FROM post_data;', (error, results) => { // 테이블 및 컬럼 이름 변경
         if (error) {
             console.error(error);

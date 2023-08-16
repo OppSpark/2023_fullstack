@@ -53,12 +53,12 @@
                         fetch('/api/post')
                 .then(response => response.json())
                 .then(data => {
-                   // let post_box = document.getElementById('postbox_in');
+                    let post_box = document.getElementById('postbox_in');
                     data.forEach(post => {
                         let post_title = post.post_title;
                         let post_content = post.post_content;
                         let html = `
-                            <div class="postbox_in">
+                            <div class="postbox">
                                 <div class="title">${post_title}</div>
                                 <hr />
                                 <div class="cont">${post_content}</div>

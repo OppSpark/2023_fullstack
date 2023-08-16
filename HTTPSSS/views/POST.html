@@ -54,7 +54,7 @@
                             .then(response => response.json())
                             .then(data => {
                                 let post_box = document.getElementById('postbox_in');
-                                data.post.forEach(post => { // 수정된 부분
+                                data.forEach(post => { // 수정된 부분
                                     let post_title = results.post_title;
                                     let post_content = results.post_content;
                                     let html = `

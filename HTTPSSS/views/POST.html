@@ -29,7 +29,6 @@
                             <input tpye="text" placeholder="Search"> <!-- 검색창과 검색 버튼 -->
                             <button>검색</button> 
                         </div>
-                        <div id="postbox_in"></div>
                     </div>
 
 
@@ -37,40 +36,20 @@
 
 
 
-                    
-
-
-
+                    <div id="postbox_in">
+                        <div class="title" id="post_title"></div> <!-- 제목 넣는 JS  -->
+                        <hr />
+                        <div class="cont" id="post_contents"></div> <!-- 본문 넣는 JS -->
+                        <hr />
+                        <div align="right">
+                            <!-- 이모티콘 제거 수정 좋아요 -->
+                            <!-- <img src="./icon/free-icon-heart-shape-silhouette-25451.png" style="height: 2.5%; margin-left: 1.5%" /> -->
+                            
+                        </div>
+                    </div>
                     <script src="./post_page.js"> </script>
-
-                    
             </section>
-            <script>
-                fetch('/api/post')
-                    .then(response => response.json())
-                    .then(data => {
-                        let post_box = document.getElementById('postbox_in');
-                        data.results.forEach(post => { // 수정된 부분
-                            let post_title = post.post_title;
-                            let post_content = post.post_content;
-                            let html = `
-                                <div class="postbox">
-                                    <div class="title">${post_title}</div>
-                                    <hr />
-                                    <div class="cont">${post_content}</div>
-                                    <hr />
-                                    <div align="right">
-                                        <i class="fas fa-heart"></i>
-                                    </div>
-                                </div>
-                            `;
-                            post_box.innerHTML += html;
-                        });
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                    });
-            </script>
+
         </body>
     
 </html>

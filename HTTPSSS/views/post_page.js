@@ -37,7 +37,18 @@
         }
       })
       .then((post) => {
-        displayPosts(post);
+        //displayPosts(post);
+        const postbox = document.getElementById('postbox_in');
+
+    for (let i = 0; i < post.length; i++) {
+      const postboxClone = postbox.cloneNode(true);
+      const postTitle = post[i].post_title;
+      const postContents = post[i].post_content;
+      postboxClone.querySelector('#post_title').textContent = postTitle;
+      postboxClone.querySelector('#post_contents').textContent = postContents;
+      document.body.appendChild(postboxClone);
+    }
+    postbox.remove();
       })
       .catch((error) => {
         console.error(error);

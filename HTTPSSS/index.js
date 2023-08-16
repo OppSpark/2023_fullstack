@@ -215,7 +215,7 @@ app.get('/post', (req, res) => {
   connection.query('SELECT post_title, post_content FROM post_data;', (error, results) => {
     if (error) {
       console.error(error);
-      res.status(500).send('Internal Server Error');
+
     } else {
       res.send(results);
     }
@@ -227,9 +227,11 @@ app.get('/api/post', (req, res) => {
 	connection.query('SELECT post_title, post_content FROM post_data;', (error, results) => {
 	  if (error) {
 		console.error(error);
-		res.status(500).send('Internal Server Error');
 	  } else {
 		res.json(results);
 	  }
 	});
   });
+
+
+  

@@ -47,19 +47,21 @@
   function fetchPosts() {
     fetch('/post')
       .then((response) => {
+        console.log(response); // 응답 데이터를 출력
+        
         if (response.ok) {
           return response.json();
         } else {
           throw new Error('Failed to fetch posts');
         }
       })
-      .then((post) => {
+      .then((posts) => {
         displayPosts(post);
       })
       .catch((error) => {
         console.error(error);
       });
-  }
+}
 
   // 페이지 로딩이 완료되면 게시물 데이터를 불러옵니다
   document.addEventListener('DOMContentLoaded', fetchPosts);

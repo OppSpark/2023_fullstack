@@ -222,21 +222,3 @@ app.get('/post', (req, res) => {
     });
 });
 
-function fetchPosts() {
-    fetch('/post')
-      .then((response) => {
-        console.log(response); // 응답 데이터를 출력
-        
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Failed to fetch posts');
-        }
-      })
-      .then((posts) => {
-        displayPosts(post);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-}

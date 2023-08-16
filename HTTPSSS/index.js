@@ -217,7 +217,7 @@ app.get('/post', (req, res) => {
       console.error(error);
 
     } else {
-      res.send(results);
+      res.json(results);
     }
   });
 });

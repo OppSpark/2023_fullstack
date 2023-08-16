@@ -1,6 +1,42 @@
 
 
 
+fetch('/api/post')
+    .then(response => response.json())
+    .then(data => {
+        let post_box = document.getElementById('postbox_in');
+        data.results.forEach(post => { 
+            let post_title = post.post_title;
+            let post_content = post.post_content;
+            let html = `
+                <div class="postbox">
+                    <div class="title">${post_title}</div>
+                    <hr />
+                    <div class="cont">${post_content}</div>
+                    <hr />
+                    <div align="right">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            `;
+            post_box.innerHTML += html;
+        });
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 /* fetch('/post')
   .then((response) => {
     if (response.ok) {
@@ -25,7 +61,11 @@
   .catch((error) => {
     console.error(error);
   }); */
-  function fetchPosts() {
+
+
+  /* 
+  
+   function fetchPosts() {
     fetch('/post')
       .then((response) => {
         console.log(response); // 응답 데이터를 출력
@@ -59,7 +99,8 @@
       document.body.appendChild(postboxClone);
     }
     postbox.remove();
-  }
+  }*/
+ 
 
 
   // 서버에서 게시물 데이터를 받아오는 함수

@@ -25,35 +25,23 @@
   .catch((error) => {
     console.error(error);
   }); */
-
-
-
-
   function fetchPosts() {
     fetch('/post')
-                .then(response => response.json())
-                .then(data => {
-                    let post_box = document.getElementById('postbox_in');
-                    data.forEach(post => {
-                        let post_title = post.post_title;
-                        let post_content = post.post_content;
-                        let html = `
-                            <div class="postbox">
-                                <div class="title">${post_title}</div>
-                                <hr />
-                                <div class="cont">${post_content}</div>
-                                <hr />
-                                <div align="right">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                            </div>
-                        `;
-                        post_box.innerHTML += html;
-                    });
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
+      .then((response) => {
+        console.log(response); // 응답 데이터를 출력
+        
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Failed to fetch posts');
+        }
+      })
+      .then((post) => {
+        displayPosts(post);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 }
 
   // 페이지 로딩이 완료되면 게시물 데이터를 불러옵니다

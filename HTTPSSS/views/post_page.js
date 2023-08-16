@@ -47,13 +47,13 @@
 
 
   // 서버에서 전달받은 게시물을 동적으로 생성하는 함수
-  function displayPosts(results) {
+  function displayPosts(response) {
     const postbox = document.getElementById('postbox_in');
 
-    for (let i = 0; i < results.length; i++) {
+    for (let i = 0; i < response.length; i++) {
       const postboxClone = postbox.cloneNode(true);
-      const postTitle = results[i].post_title;
-      const postContents = results[i].post_content;
+      const postTitle = response[i].post_title;
+      const postContents = response[i].post_content;
       postboxClone.querySelector('#post_title').textContent = postTitle;
       postboxClone.querySelector('#post_contents').textContent = postContents;
       document.body.appendChild(postboxClone);

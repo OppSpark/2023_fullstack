@@ -27,23 +27,8 @@
   }); */
 
 
-  // 서버에서 전달받은 게시물을 동적으로 생성하는 함수
-  function displayPosts(post) {
-    const postbox = document.getElementById('postbox_in');
-
-    for (let i = 0; i < post.length; i++) {
-      const postboxClone = postbox.cloneNode(true);
-      const postTitle = post[i].post_title;
-      const postContents = post[i].post_content;
-      postboxClone.querySelector('#post_title').textContent = postTitle;
-      postboxClone.querySelector('#post_contents').textContent = postContents;
-      document.body.appendChild(postboxClone);
-    }
-    postbox.remove();
-  }
 
 
-  // 서버에서 게시물 데이터를 받아오는 함수
   function fetchPosts() {
     fetch('/post')
       .then((response) => {
@@ -66,6 +51,25 @@
   // 페이지 로딩이 완료되면 게시물 데이터를 불러옵니다
   document.addEventListener('DOMContentLoaded', fetchPosts);
 
+
+  // 서버에서 전달받은 게시물을 동적으로 생성하는 함수
+  function displayPosts(post) {
+    const postbox = document.getElementById('postbox_in');
+
+    for (let i = 0; i < post.length; i++) {
+      const postboxClone = postbox.cloneNode(true);
+      const postTitle = post[i].post_title;
+      const postContents = post[i].post_content;
+      postboxClone.querySelector('#post_title').textContent = postTitle;
+      postboxClone.querySelector('#post_contents').textContent = postContents;
+      document.body.appendChild(postboxClone);
+    }
+    postbox.remove();
+  }
+
+
+  // 서버에서 게시물 데이터를 받아오는 함수
+  
 
 
 

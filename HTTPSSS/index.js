@@ -182,7 +182,7 @@ app.post('/login', (req, res) => {
 
 
 
-
+const [rows, fields] = await connection.execute('SELECT post_title, post_content FROM post_data');
 
 
 

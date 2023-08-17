@@ -49,35 +49,37 @@
                     </div>
                     <script src="./post_page.js"> </script>
 
-                    <script>
-                        fetch('/api/post')
-                .then(response => response.json())
-                .then(data => {
-                    let post_box = document.getElementById('postbox');
-                    data.reverse().forEach(post => {
-                        let post_title = post.post_title;
-                        let post_content = post.post_content;
-                        let html = `
-                            <div id="postbox">
-                                <div class="title">${post_title}</div>
-                                <hr />
-                                <div class="cont">${post_content}</div>
-                                <hr />
-                                <div align="right">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                            </div>
-                        `;
-                        post_box.innerHTML += html;
-                    });
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-                        
-                    </script>
+                    
 
             </section>
+
+            <script>
+                fetch('/api/post')
+        .then(response => response.json())
+        .then(data => {
+            let post_box = document.getElementById('postbox');
+            data.reverse().forEach(post => {
+                let post_title = post.post_title;
+                let post_content = post.post_content;
+                let html = `
+                    <div id="postbox">
+                        <div class="title">${post_title}</div>
+                        <hr />
+                        <div class="cont">${post_content}</div>
+                        <hr />
+                        <div align="right">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                `;
+                post_box.innerHTML += html;
+            });
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+                
+            </script>
 
             
 

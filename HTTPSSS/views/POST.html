@@ -49,7 +49,9 @@
                     </div>
                     <script src="./post_page.js"> </script>
 
-                    
+                    <div id = "post_box_clone">
+
+                    </div>
 
             </section>
 
@@ -58,6 +60,7 @@
         .then(response => response.json())
         .then(data => {
             let post_box = document.getElementById('postbox');
+            let post_box_clone = document.getElementById('post_box_clone');
             data.reverse().forEach(post => {
                 let post_title = post.post_title;
                 let post_content = post.post_content;
@@ -72,7 +75,7 @@
                         </div>
                     </div>
                 `;
-                post_box.innerHTML += html;
+                post_box_clone.innerHTML += html;
                 
             });
         })

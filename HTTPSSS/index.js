@@ -211,17 +211,6 @@ app.listen(port, () => {
 
 app.use(express.json());
 
-app.get('/post', (req, res) => {
-  connection.query('SELECT post_title, post_content FROM post_data;', (error, results) => {
-    if (error) {
-      console.error(error);
-
-    } else {
-      res.send(results);
-    }
-  });
-});
-
 
 app.get('/api/post', (req, res) => {
 	connection.query('SELECT post_title, post_content FROM post_data;', (error, results) => {

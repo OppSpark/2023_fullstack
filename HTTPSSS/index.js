@@ -16,21 +16,19 @@ const { resourceUsage } = require('process');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
-
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
 app.use(express.static(path.join(__dirname,'views')));
-
 express.applic
 
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname,'./', 'views', 'MAIN.html'));
 });
-
 
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname,'./','views', 'REGISTER.html'));
@@ -54,8 +52,7 @@ app.get('/contact', (req, res) => {
 
 
  
-
-
+//dB 정보 불러오기
 const dbConfig = require('./dbConfig');
 
 const connection = mysql.createConnection({
@@ -73,52 +70,13 @@ connection.connect(error => {
 
 
 
-  /* 
-
-  //디비 정보 불러오는 내용
-const dbConfig = {
-  };
-  
-  // MySQL 데이터베이스 연결 설정
-  const connection = mysql.createConnection(dbConfig);
-  
-  // 데이터베이스 연결 확인
-  connection.connect((err) => {
-	if (err) {
-	  console.error('Error connecting to database: ', err);
-	  return;
-	}
-	console.log('Connected to database!');
-  });
-
-  
-  */
-
-
-
-
-
-
-
-
-// 글 불러오기
-
-
-
-
-
-
-//
-
-  //회원 가입 구현
-
+//회원 가입 구현
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/register', (req, res) => {
 	
 	const {re_email, re_name, re_pw } = req.body;
-
 	// MySQL에 회원 정보 삽입
 	const sql = 'INSERT INTO user_info (user_id, user_name, user_pw) VALUES (?, ?, ?)';
 	connection.query(sql, [re_email, re_name, re_pw], (err, result) => {
@@ -136,8 +94,6 @@ app.post('/register', (req, res) => {
 
 
   // NEW POST 구현 방법
-// mysql 문법 INSERT INTO post_data (post_title, post_content, data_time) VALUES ('제목이 무엇인가요?', '여기는 내용입니다.', NOW());
-
 app.post('/new_post', (req, res) => {
 
 	const {new_ti, new_con } = req.body;
@@ -150,8 +106,6 @@ app.post('/new_post', (req, res) => {
 		res.redirect('/new_post');
 	}
 	else{
-	
-
 	const inst = 'INSERT INTO post_data (post_title, post_content, data_time) VALUES (?, ?, NOW())';
 	connection.query(inst, [new_ti, new_con], (err, result)=> {
 	if (err) {
@@ -171,13 +125,6 @@ app.post('/new_post', (req, res) => {
 
 
   //로그인 구현
-
-
-
-
-
-
-
 app.post('/login', (req, res) => {
 	console.log('로그인');
 	const {lo_id, lo_pw } = req.body;
@@ -193,7 +140,10 @@ app.post('/login', (req, res) => {
             }else{
 				// DB에 해당 ID가 있을 경우
 				console.log('pass');
+				res.setHeader('Set-Cookie', ['user=' + req.body.id]);
+        		
 				res.send("<script>alert('로그인 되었습니다.'); history.back(); </script>");
+				res.redirect('/');
 			}
 			res.redirect('/login');
 	
@@ -220,16 +170,9 @@ app.use(
 	})
 );
 
-
-
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });
-
-
-
-
-app.use(express.json());
 
 
 app.get('/api/post', (req, res) => {

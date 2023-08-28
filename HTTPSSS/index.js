@@ -56,7 +56,7 @@ app.get('/contact', (req, res) => {
  
 
 
-const dbConfig = require('./dbConfig.js');
+const dbConfig = require('./dbConfig');
 
 const connection = mysql.createConnection({
     host: dbConfig.host,

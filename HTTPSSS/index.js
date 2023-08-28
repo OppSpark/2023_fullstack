@@ -50,17 +50,33 @@ app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, './', 'views','CONTECT_LIST.html'));
 });
 
+
+
+
  
 
 
+const dbConfig = require('./dbConfig');
 
-//디비 정보 불러오는 내용
+const connection = mysql.createConnection({
+    host: dbConfig.host,
+    user: dbConfig.user,
+	port: dbConfig.posrt,
+    password: dbConfig.password,
+    database: dbConfig.database
+});
+
+connection.connect(error => {
+	if (error) throw error;
+	console.log("Successfully connected to the database.");
+  });
+
+
+
+  /* 
+
+  //디비 정보 불러오는 내용
 const dbConfig = {
-	host: 'localhost', 
-	user: 'OppSpark',
-	port: 3306,
-	password: '1515', 
-	database: '23_S', 
   };
   
   // MySQL 데이터베이스 연결 설정
@@ -74,6 +90,10 @@ const dbConfig = {
 	}
 	console.log('Connected to database!');
   });
+
+  
+  */
+
 
 
 
@@ -105,7 +125,7 @@ app.post('/register', (req, res) => {
 	if (err) {
 		console.error(err);
 
-		res.send("<script>alert('ID 와 비밀번호, 이름을 를 입력해주세요');  history.back();</script>");
+		res.send("<script>alert('ID 와 비밀번호, 이름을 입력해주세요');  history.back();</script>");
 	} else {
 
 		res.send("<script>alert('회원가입이 완료 되었습니다.'; history.back(); </script>");

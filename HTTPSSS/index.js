@@ -140,7 +140,7 @@ app.post('/login', (req, res) => {
             }else{
 				// DB에 해당 ID가 있을 경우
 				console.log('pass');
-				res.setHeader('Set-Cookie', ['user=' + req.body.id]);
+				res.setHeader('Set-Cookie', ['user=' + lo_id]);
         		
 				res.send("<script>alert('로그인 되었습니다.'); history.back(); </script>");
 				res.redirect('/');
